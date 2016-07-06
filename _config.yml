@@ -23,8 +23,7 @@ footer_url:
       url: /contact
     - text: XML Feed
       url: /feed.xml
-#url: "http://miiy.github.io"
-url: "http://115.29.170.42:4000"
+url: "http://miiy.github.io"
 baseurl: "" # the subpath of your site, e.g. /blog
 # Build settings
 markdown: redcarpet
