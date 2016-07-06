@@ -1,0 +1,34 @@
+# Site settings
+title: Miiy
+email: youremail@example.com
+description: >
+    A Simple Jekyll Blog.
+author: Fay
+github_username: miiy
+twitter_username: 
+disqus_username: miiy
+nav:
+    - text: Lists
+      url: /lists
+    - text: Archive
+      url: /archive
+    - text: Category
+      url: /category
+    - text: Tags
+      url: /tags
+footer_url:
+    - text: About
+      url: /about
+    - text: Contact
+      url: /contact
+    - text: XML Feed
+      url: /feed.xml
+#url: "http://miiy.github.io"
+url: "http://115.29.170.42:4000"
+baseurl: "" # the subpath of your site, e.g. /blog
+# Build settings
+markdown: redcarpet
+
+gems: [jekyll-paginate]
+paginate: 10
+paginate_path: "/lists/page:num/"

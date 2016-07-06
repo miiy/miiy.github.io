@@ -1,0 +1,11 @@
+---
+layout: post
+title: "PHP"
+date: 2016-06-12
+author: fay
+category: php
+tags: php
+---
+
+## 常用命令
+

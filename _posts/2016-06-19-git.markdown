@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Git"
+date: 2016-06-19
+author: fay
+category: other
+tags: git
+---
+
+## Git
+
+[Git](http://www.git-scm.com)
+
+
+##Git常用命令
+
+```bash
+git branch #查看本地所有分支
+git branch -r #查看远程所有分支
+git branch -a #查看所有分支
+
+git checkout dev #切换到本地dev分支
+git checkout -b dev #建立一个新的本地分支dev
+
+git commit -m "This is the message describing the commit" #添加commit信息
+
+git log #显示最新的提交，新的在上面
+```
+

@@ -1,0 +1,13 @@
+---
+layout: post
+title: "MongoDB"
+date: 2016-06-13
+author: fay
+category: mongodb
+tags: mongodb
+---
+
+安装MongoDB
+
+查看 [MongoDB文档](http://docs.mongodb.org/manual/)
+

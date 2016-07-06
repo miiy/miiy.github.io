@@ -1,0 +1,166 @@
+---
+layout: post
+title: "CentOS7"
+date: 2016-06-12
+author: fay
+category: linux
+tags: linux centos centos7
+---
+
+
+# Centos7
+
+###系统约定
+
+* 软件源代码包存放位置：`/usr/local/src`
+
+* 源码包编译安装位置：`/usr/local/软件名字`
+
+### 查看磁盘使用情况
+
+使用`df -h`,`free -m`命令查看磁盘使用情况
+
+```
+[root@localhost /]# df -h
+文件系统                       容量  已用  可用 已用% 挂载点
+/dev/mapper/centos_bogon-root  6.7G  906M  5.8G   14% /
+devtmpfs                       236M     0  236M    0% /dev
+tmpfs                          245M     0  245M    0% /dev/shm
+tmpfs                          245M  4.4M  241M    2% /run
+tmpfs                          245M     0  245M    0% /sys/fs/cgroup
+/dev/sda1                      497M  119M  379M   24% /boot
+[root@localhost /]# free -m
+              total        used        free      shared  buff/cache   available
+Mem:            489          73         110           4         306         312
+Swap:           819           0         819
+```
+
+###查看ip
+
+```
+ip addr #查看IP
+```
+
+###网络设置
+
+CentOS 7.0默认安装好之后是没有自动开启网络连接的！
+
+```
+cd /etc/sysconfig/network-scripts/ #进入网络配置文件目录
+```
+
+编辑网络开启自动启用网络连接，ifcfg-en开头的文件将`ONBOOT设置为yes`。
+
+```
+service network restart #重启网络
+ping www.baidu.com #测试网络是否正常
+```
+
+###配置防火墙
+
+CentOS 7.0默认使用的是firewall作为防火墙，这里改为iptables防火墙。
+
+1.关闭firewall：
+
+```
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+```
+
+2.安装iptables
+
+```
+yum install iptables-services #根据提示输入Y直到安装完成
+```
+
+3.配置iptables
+
+```
+vi /etc/sysconfig/iptables #编辑防火墙配置文件
+```
+
+增加80,3306端口。配置信息格式如下可以看到加了两行：
+
+```
+# sample configuration for iptables service
+# you can edit this manually or use system-config-firewall
+# please do not ask us to add additional ports/services to this default configuration
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+```
+
+```
+systemctl restart iptables.service #重启防火墙使配置生效
+systemctl enable iptables.service #设置防火墙开机启动
+```
+
+###关闭SELINUX
+
+查看状态
+```
+[root@localhost m]# sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      28
+```
+
+修改配置文件/etc/selinux/config，将SELINU置为disabled。
+
+```
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+#SELINUX=enforcing
+SELINUX=disabled
+# SELINUXTYPE= can take one of three two values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+```
+修改完成后，保存重启，重启后状态如下：
+```
+[root@localhost ~]# sestatus
+SELinux status:                 disabled
+```
+
+## LAMP环境
+
+###安装PHP
+
+```
+yum install php #根据提示输入Y直到安装完成
+```
+
+安装PHP组件，使PHP支持 MariaDB
+
+```
+yum install php-mysql php-gd libjpeg* php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-bcmath php-mhash #这里选择以上安装包进行安装，根据提示输入Y回车
+```
+
+如果需要安装PHP5.5参考下方,安装完成后到这里安装必要的组件`https://webtatic.com/packages/php55/`
+
+```
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm #安装EPEL包
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm #安装webtatic包
+yum install php56w php56w-cli php56w-common php56w-fpm php56w-gd php56w-imap php56w-intl php56w-ldap php56w-mbstring php56w-mcrypt php56w-mysqlnd php56w-odbc php56w-opcache php56w-pdo php56w-pear php56w-pecl-apcu php56w-pecl-imagick php56w-pecl-memcache php56w-pgsql php56w-process php56w-snmp php56w-xml php56w-xmlrpc
+```

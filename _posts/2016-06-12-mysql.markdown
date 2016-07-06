@@ -1,0 +1,85 @@
+---
+layout: post
+title: "MySQL"
+date: 2016-06-12
+author: fay
+category: mysql
+tags: mysql
+---
+
+## 常用命令
+
+```sql
+show databases;
+show tables;
+```
+
+```php
+$a = 0;
+function aaa(){
+echo 'aaa';
+}
+```
+
+
+
+统计时段登录人数
+
+```sql
+SELECT count(*)
+ FROM `table_name`
+ WHERE `login_time` > UNIX_TIMESTAMP('2015-10-31 12:00:00') AND `login_time` < UNIX_TIMESTAMP('2015-10-31 14:00:00');
+```
+
+
+# Install
+
+###CentOS7安装MariaDB10.0
+
+```bash
+vim /etc/yum.repos.d/MariaDB.repo #添加源
+```
+
+```
+# MariaDB 10.0 CentOS repository list - created 2015-12-01 08:46 UTC
+# http://mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.0/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+```
+
+```bash
+yum -y install mariadb mariadb-server #安装
+systemctl start mysql #启动
+systemctl enable mysql #设置开机启动
+mysql_secure_installation #为root账户设置密码，按回车，根据提示输入Y，输入2次密码，回车，根据提示一路输入Y最后出现：Thanks for using MariaDB! MySql密码设置完成，重新启动MySQL。
+systemctl restart mariadb.service #重启MariaDB
+```
+
+简单SQL测试
+
+```sql
+STATUS; -- 查看MySQL状态
+SHOW ENGINES; -- 显示支持的引擎
+SHOW DATABASES; -- 显示所有数据库
+USE test; -- 切换数据库上下文,即设置当前会话的默认数据库
+SHOW TABLES; -- 显示本数据库所有的表
+-- 创建一个表
+CREATE TABLE user (
+  id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  name char(50),
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO user(name) VALUES ('admin'); -- 插入测试数据
+SELECT * FROM user; -- 简单查询
+```
+mv /etc/my.cnf /etc/my.cnf.bak #备份配置文件
+cp /usr/share/mysql/my-huge.cnf /etc/my.cnf #拷贝配置文件
+
+
+
+
+## Tutorial
+

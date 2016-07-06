@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Redis"
+date: 2016-06-13
+author: fay
+category: redis
+tags: redis
+---
+
+# commands
+命令：
+PING
+返回 PONG。此命令通常是用来测试如果连接还活着，或延迟来衡量。
+```
+redis> ping
+PONG
+redis>
+```
+
+EXISTS key
+返回key是否存在。
+```
+redis> SET key1 "Hello"
+OK
+redis> EXISTS key1
+(integer) 1
+redis> EXISTS key2
+(integer) 0
+redis>
+```
+
+GET key
+返回key的value。如果key不存在，返回特殊值nil。如果key的value不是string，就返回错误，因为GET只处理string类型的values。
+

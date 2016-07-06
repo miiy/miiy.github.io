@@ -1,0 +1,51 @@
+---
+layout: post
+title: "html"
+date: 2016-06-11
+author: fay
+category: html
+tags: html
+---
+
+# Code
+
+```html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Title</title>
+    <meta name="keywords" content="X,X" />
+    <meta name="description" content="X" />
+    <link rel="stylesheet" type="text/css" href="path/name.css" />
+    <script type="text/javascript" src="path/name.js"></script>
+</head>
+<body>
+    <img src="path/name.jpg" width="100" height="100" alt="X" />
+    <a href="#" title="" target="_blank">Link</a>
+</body>
+</html>
+```
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Title</title>
+    <meta name="keywords" content="X,X" />
+    <meta name="description" content="X" />
+    <link rel="stylesheet" type="text/css" href="path/name.css">
+    <script type="text/javascript" src="path/name.js"></script>
+</head>
+<body>
+    <img src="path/name.jpg" width="100" height="100" alt="" />
+    <a href="#" title="" target="_blank">Link</a>
+</body>
+</html>
+```
+
+```css
+@charset "utf-8";
+/* XXX.css */
+```
