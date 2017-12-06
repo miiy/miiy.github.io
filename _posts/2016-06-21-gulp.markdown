@@ -1,8 +1,0 @@
----
-layout: post
-title: "Redis"
-date: 2016-06-13
-author: fay
-category: redis
-tags: redis
----
