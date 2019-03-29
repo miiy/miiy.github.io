@@ -2,7 +2,6 @@
 layout: post
 title: "MySQL StandardReplication"
 date: 2016-06-12
-author: fay
 category: mysql
 tags: mysql
 ---

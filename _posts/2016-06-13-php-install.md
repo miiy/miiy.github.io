@@ -2,7 +2,6 @@
 layout: post
 title: "php install"
 date: 2016-06-13
-author: fay
 category: php
 tags: php centos
 ---

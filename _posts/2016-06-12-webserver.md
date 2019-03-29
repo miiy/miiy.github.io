@@ -2,7 +2,6 @@
 layout: post
 title: "webserver"
 date: 2016-06-12
-author: fay
 category: linux
 tags: linux
 ---

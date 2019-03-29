@@ -2,7 +2,6 @@
 layout: post
 title: "VirtualBox"
 date: 2016-06-12
-author: fay
 category: linux
 tags: linux virtualbox
 ---
