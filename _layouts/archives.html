@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<div class="page-archive">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <div class="timeline">
+    {% for post in site.posts %}
+    {% unless post.next %}
+    <div class="timeline-title">
+      <h2 class="timeline-year">{{ post.date | date: '%Y' }}</h2>
+    </div>
+    <ul>
+      {% else %}
+      {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+      {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+      {% if year != nyear %}
+    </ul>
+    <div class="timeline-title">
+      <h2 class="timeline-year">{{ post.date | date: '%Y' }}</h2>
+    </div>
+    <ul>
+      {% endif %}
+    {% endunless %}
+      <li>
+        <h3>
+          <span class="post-meta">{{ post.date | date: "%b %-d" }}</span>
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+</div>
