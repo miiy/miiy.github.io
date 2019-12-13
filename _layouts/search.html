@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<div class="search-page">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+  
+  {{ content }}
+  
+  <!-- HTML elements for search -->
+  <input type="text" id="search-input" placeholder="Search blog posts..">
+  <ul id="results-container" class="post-list"></ul>
+</div>
+
+<!-- or without installing anything -->
+<script src="{{ "/assets/js/simple-jekyll-search.min.js" | relative_url }}"></script>
+
+<script type="text/javascript">
+  var sjs = SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '/search.json',
+    searchResultTemplate: '<li><h3><a class="post-link" href="{url}">{title}</a><span class="post-meta">{date} Category: {category} Tags: {tags}</span></h3>{excerpt}</li>',
+  })
+</script>

@@ -22,10 +22,20 @@
 }
 
 /**
- * archive page
+ * posts page
  */
 
-.page-archive {
+.posts-page {
+  .pagination {
+    margin-bottom: 30px;
+  }
+}
+
+/**
+ * archives page
+ */
+
+.archives-page {
   ul {
     list-style: none;
   }
@@ -48,7 +58,6 @@
     }
     .timeline-title {
       position: relative;
-      margin: 2em auto 1em;
       .timeline-year {
         margin-left: 1em;
         &:before {
@@ -65,5 +74,34 @@
         }
       }
     }
+  }
+}
+
+/**
+ * tags page
+ */
+
+.tags-page {
+  .tag-list {
+    margin-bottom: 15px;
+  }
+  .tag-list a {
+    margin: 2px;
+  }
+}
+
+/**
+ * search page
+ */
+
+.search-page {
+  #search-input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+    font-size: 20px;
+    text-indent: 10px;
+    margin-bottom: 15px;
   }
 }

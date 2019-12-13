@@ -5,6 +5,4 @@
 layout: index
 ---
 
-As life goes on, you'll see a better you.
-
-![intro](/assets/img/index/intro.jpg)
+foo
