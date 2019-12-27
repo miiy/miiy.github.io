@@ -5,6 +5,14 @@ date: 2019-12-10
 category: web
 ---
 
+https://baike.baidu.com/item/冯·诺依曼结构
+
+https://baike.baidu.com/item/程序
+
+https://baike.baidu.com/item/尼古拉斯·沃斯
+
+沃斯公式  程序=数据结构+算法
+
 
 网站流量: https://baike.baidu.com/item/网站流量
 

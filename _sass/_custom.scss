@@ -1,6 +1,20 @@
+/*
+ * Base
+ */
+
+.wrapper {
+  max-width: 1000px;
+}
+
 /**
  * Code formatting
  */
+
+blockquote {
+  font-style: normal;
+  font-size: 16px;
+  color: #6a737d;
+}
 
 .highlighter-rouge {
   .highlight {

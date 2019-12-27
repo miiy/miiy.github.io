@@ -12,3 +12,5 @@ WORKDIR /srv/app
 EXPOSE 4000
 
 ENTRYPOINT [ "./entrypoint.sh" ]
+
+CMD [ "jekyll", "serve", "-H", "0.0.0.0", "-P", "4000"]

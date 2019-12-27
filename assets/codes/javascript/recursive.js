@@ -1,7 +1,3 @@
-<html>
-<head></head>
-<body>
-<script type="application/javascript">
 var arr = [{
     department_id: 'D1',
     name: 'D1',
@@ -59,6 +55,3 @@ function test(arr)
 
 arr = test(arr);
 console.log(arr);
-</script>
-</body>
-</html>

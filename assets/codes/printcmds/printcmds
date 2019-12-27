@@ -1,0 +1,43 @@
+#!/bin/bash
+
+man_path="./man"
+help_path="./help"
+
+paths=("$man_path" "$help_path")
+
+commands=('man' 'xargs')
+
+
+for path in ${paths[@]}
+do
+    if [ ! -d "$path" ];then
+        mkdir "$path"
+    fi
+done
+
+for command in ${commands[@]}
+do
+    man $command > $man_path/$command.txt
+    $command --help 1> $help_path/$command.txt 2>&1
+done
+
+
+
+commands2=('netstat' 'sar')
+
+# netstat
+if [ -z `rpm -qa net-tools` ]; then
+    yum install -y net-tools
+fi
+
+# sar
+if [ -z `rpm -qa sysstat` ]; then
+    yum install -y sysstat
+fi
+
+for command in ${commands2[@]}
+do
+    man $command > $man_path/$command.txt
+    $command --help 1> $help_path/$command.txt 2>&1
+done
+
