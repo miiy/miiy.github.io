@@ -61,5 +61,4 @@ sass:
 #   - vendor/gems/
 #   - vendor/ruby/
 exclude:
-  - Dockerfile
   - docker-compose.yml

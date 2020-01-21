@@ -252,15 +252,23 @@ sys	0m 0.03s
 
 ### Understand how CMD and ENTRYPOINT interact
 
+### 了解CMD和ENTRYPOINT是如何交互的
+
 Both CMD and ENTRYPOINT instructions define what command gets executed when running a container. There are few rules that describe their co-operation.
 
 1. Dockerfile should specify at least one of CMD or ENTRYPOINT commands.
 
+1. Dockerfile 应该指定至少一个 CMD 或 ENTRYPOINT 命令。
+
 2. ENTRYPOINT should be defined when using the container as an executable.
+
+2. 在将容器用作可执行文件时，应该定义 ENTRYPOINT
 
 3. CMD should be used as a way of defining default arguments for an ENTRYPOINT command or for executing an ad-hoc command in a container.
 
 4. CMD will be overridden when running the container with alternative arguments.
+
+4. 当运行带有可选参数的容器时，CMD将被覆盖。
 
 The table below shows what command is executed for different ENTRYPOINT / CMD combinations:
 
