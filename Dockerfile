@@ -7,12 +7,12 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     gem sources -u && \
     gem install bundle jekyll
 
-WORKDIR /srv/app
+WORKDIR /app
+
+COPY ./Gemfile /app
+
+RUN bundle install
 
 EXPOSE 4000
-
-COPY ./entrypoint.sh /
-
-ENTRYPOINT [ "/entrypoint.sh" ]
 
 CMD [ "jekyll", "serve", "-H", "0.0.0.0", "-P", "4000"]
