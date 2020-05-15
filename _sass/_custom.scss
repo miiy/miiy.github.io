@@ -2,37 +2,34 @@
  * Base
  */
 
-.wrapper {
-  max-width: 1000px;
+body {
+  color: #24292e;
+  background-color: #fff;
 }
 
-/**
- * Code formatting
- */
+ul, ol {
+  margin-left: 0;
+}
+
+table {
+  border: none;
+  th {
+    background-color: #fff;
+  }
+}
 
 blockquote {
+  letter-spacing: 0;
   font-style: normal;
-  font-size: 16px;
-  color: #6a737d;
+  font-size: inherit;
 }
 
-.highlighter-rouge {
-  .highlight {
-    background: #f6f8fa;
-    margin-bottom: 16px;
-    padding: 0;
-    pre {
-      border: none;
-      padding: 16px;
-      overflow-x: auto;
-    
-      code {
-        border: none;
-        padding: 0;
-        background: none;
-      }
-    }
-  }
+pre {
+  border: none;
+}
+
+.wrapper {
+  max-width: 920px;
 }
 
 /**
@@ -52,6 +49,7 @@ blockquote {
 .archives-page {
   ul {
     list-style: none;
+    margin-left: 30px;
   }
 
   .timeline {

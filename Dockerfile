@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
-    apk add bash git nodejs \
+    apk add bash git nodejs npm yarn \
     ruby ruby-dev ruby-rdoc ruby-bigdecimal ruby-webrick ruby-etc build-base && \
     gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/ && \
     gem sources -u && \
