@@ -16,10 +16,10 @@ category: ide
 
 ### 多光标
 
-alt + 鼠标
+Option + 鼠标
 
 ### 列选择
 
-Shift+Alt+Arrow Key
+Shift+Option+Command+Arrow Key
 
-Shift+Alt+鼠标
+Shift+Option+鼠标
