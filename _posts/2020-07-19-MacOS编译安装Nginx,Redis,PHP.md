@@ -162,6 +162,27 @@ group = staff
 
 sudo php-fpm
 
+## alias
+
+```bash
+alias srvs='ps -ef|grep nginx;ps -ef|grep php;ps -ef|grep mysql;ps -ef|grep redis'
+
+alias msqstart='sudo /usr/local/mysql/support-files/mysql.server start'
+alias msqstop='sudo /usr/local/mysql/support-files/mysql.server stop'
+
+alias rds-srv='/usr/local/redis/bin/redis-server /usr/local/redis/redis.conf'
+alias rdsquit='kill -QUIT `cat /usr/local/redis/redis_6379.pid`'
+
+alias ngx='/usr/local/nginx/sbin/nginx'
+alias ngx-t='/usr/local/nginx/sbin/nginx -t'
+alias ngxreload='/usr/local/nginx/sbin/nginx -s reload'
+alias ngxquit='/usr/local/nginx/sbin/nginx -s quit'
+
+alias fpmstart='sudo php-fpm -g /usr/local/php/var/run/php-fpm.pid'
+alias fpmreload='sudo kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid`'
+alias fpmquit='sudo kill -QUIT `cat /usr/local/php/var/run/php-fpm.pid`'
+```
+
 ## MacOS 自带的 php 编译参数
 
 ```text
