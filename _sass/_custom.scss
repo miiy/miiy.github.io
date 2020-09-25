@@ -68,6 +68,10 @@ pre {
       display: table;
       clear: both;
     }
+    .post-meta {
+      display: inline-block;
+      min-width: 45px;
+    }
     .timeline-title {
       position: relative;
       .timeline-year {
