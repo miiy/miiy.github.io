@@ -81,4 +81,6 @@ ubuntu@ubuntu:~$ sudo netplan apply
 
 ## 0x03
 
+https://askubuntu.com/questions/984445/netplan-configuration-on-ubuntu-17-04-virtual-machine
+
 Netplan configuration examples: https://netplan.io/examples/
