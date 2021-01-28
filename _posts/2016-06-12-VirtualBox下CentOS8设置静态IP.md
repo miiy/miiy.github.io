@@ -2,7 +2,6 @@
 layout: post
 title: "VirtualBox下CentOS8设置静态IP"
 date: 2016-06-12
-category: linux
 tags: linux virtualbox centos8
 ---
 

@@ -2,7 +2,6 @@
 layout: post
 title: "VirtualBox下Ubuntu20.04设置静态IP"
 date: 2020-12-11
-category: linux
 tags: linux virtualbox ubuntu
 ---
 

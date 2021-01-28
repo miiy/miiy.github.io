@@ -2,7 +2,7 @@
 layout: post
 title: "Docker CMD ENTRYPOINT 区别"
 date: 2019-12-27
-category: docker
+tags: docker
 ---
 
 ## CMD

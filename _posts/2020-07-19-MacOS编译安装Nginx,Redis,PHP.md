@@ -2,7 +2,7 @@
 layout: post
 title: "MacOS编译安装Nginx, Redis, PHP"
 date: 2020-07-09
-category: other
+tags: macos
 ---
 
 ## MySQL

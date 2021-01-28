@@ -2,7 +2,7 @@
 layout: post
 title: "计算机专业词汇"
 date: 2019-12-10
-category: web
+tags: other
 ---
 
 https://baike.baidu.com/item/冯·诺依曼结构
