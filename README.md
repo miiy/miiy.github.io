@@ -3,19 +3,19 @@
 ## Build
 
 ```bash
-docker build -t jekyll .
+docker build -t test/jekyll .
 ```
 
 ## run
 
 ```bash
-docker run --rm -it -v "$PWD":/app -p 4000:4000 jekyll
+docker run --rm -it -v "$PWD":/app -p 4000:4000 test/jekyll
 ```
 
 ## sh
 
 ```bash
-docker run --rm -it -v "$PWD":/app -p 4000:4000 jekyll sh
+docker run --rm -it -v "$PWD":/app -p 4000:4000 test/jekyll sh
 ```
 
 ## Jekyll
