@@ -12,7 +12,9 @@ https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-ku
 ## 规划
 
 ```
-k8s-soft     10.0.2.20 1C1G nfs-kernel-server, docker, harbor
+k8s-soft     10.0.2.20 2C4G nfs-kernel-server, docker, gitlab (gitlab.k8s  4431 8081),
+                                                       jenkins(jenkins.k8s 4432 8082),
+                                                       harbor (harbor.k8s  4433 8083)
 k8s-master01 10.0.2.21 2C2G docker, kubeadm、kubelet、kubectl, nfs-common, k9s, helm
 k8s-node01   10.0.2.22 2C2G docker, kubeadm、kubelet、kubectl, nfs-common
 k8s-node02   20.0.2.23 2C2G docker, kubeadm、kubelet、kubectl, nfs-common
