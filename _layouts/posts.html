@@ -9,45 +9,57 @@ layout: default
 
   {{ content }}
 
-  {%- if paginator.posts.size > 0 -%}
-  <!-- This loops through the paginated posts -->
-  <ul class="post-list">
-    {% for post in paginator.posts %}
-    <li>
-      <h3>
-        <a class="post-link" href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
-        </a>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-      </h3>
-      {{ post.content | strip_html | truncate: '250' | escape }}
-    </li>
-    {%- endfor -%}
-  </ul>
+  {% if site.paginate %}
+    {% assign posts = paginator.posts %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
+
+  {%- if posts.size > 0 -%}
+    {%- if page.list_title -%}
+    <h2 class="post-list-heading">{{ page.list_title }}</h2>
+    {%- endif -%}
+    <ul class="post-list">
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      {% for post in posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ post.content | strip_html | truncate: '250' | escape }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
   {%- endif -%}
 
   <!-- Pagination links -->
+  {% if paginator.total_pages > 1 %}
   <div class="pagination">
     {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous">
-      Previous
-    </a>
+      <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
     {% else %}
-    <span class="previous">Previous</span>
+      <span>&laquo; Prev</span>
     {% endif %}
-    <span class="page_number ">
-      Page: {{ paginator.page }} of {{ paginator.total_pages }}
-    </span>
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <em>{{ page }}</em>
+      {% elsif page == 1 %}
+        <a href="{{ site.paginate_path | relative_url | remove: ':num/' }}">{{ page }}</a>
+      {% else %}
+        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+
     {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+      <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
     {% else %}
-    <span class="next ">Next</span>
+      <span>Next &raquo;</span>
     {% endif %}
   </div>
-  
-  <p class="feed-subscribe">
-    <a href="{{ 'feed.xml' | relative_url }}">
-      <svg class="svg-icon orange"><use xlink:href="{{ 'assets/minima-social-icons.svg#rss' | relative_url }}"></use></svg><span>Subscribe</span>
-    </a>
-  </p>
+  {% endif %}
 </div>

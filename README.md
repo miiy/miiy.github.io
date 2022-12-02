@@ -3,22 +3,24 @@
 ## Build
 
 ```bash
-docker build -t test/jekyll .
+docker build -t miiy/jekyll _deploy
 ```
 
 ## run
 
 ```bash
-docker run --rm -it -v "$PWD":/app -p 4000:4000 test/jekyll
+docker run --rm -it -v "$PWD":/app -p 4000:4000 miiy/jekyll
 ```
 
 ## sh
 
 ```bash
-docker run --rm -it -v "$PWD":/app -p 4000:4000 test/jekyll sh
+docker run --rm -it -v "$PWD":/app -p 4000:4000 miiy/jekyll sh
 ```
 
 ## Jekyll
+
+Create a new site
 
 ```bash
 jekyll new ./
@@ -27,6 +29,10 @@ jekyll serve -H 0.0.0.0 -P 4000
 jekyll build
 ```
 
+Plugins on GitHub Pages
+
+https://pages.github.com/versions
+
 ## Bundle - Ruby Dependency Management
 
 ```bash
@@ -34,9 +40,13 @@ bundle install
 bundle show minima
 ```
 
-## rougify
+## Rouge
+
+Generate Rouge highlight syntax
 
 ```bash
 rougify help style
-rougify style monokai > syntax.css
+rougify style github > github.css
+rougify style github > github.css
+rougify style colorful > colorful.css
 ```

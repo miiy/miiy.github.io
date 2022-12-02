@@ -85,8 +85,12 @@
   color: #555;
   font-weight: bold;
 }
-.highlight .s, .highlight .sa, .highlight .sb, .highlight .dl, .highlight .s2, .highlight .sh, .highlight .s1 {
+.highlight .s, .highlight .sb, .highlight .dl, .highlight .s2, .highlight .sh, .highlight .s1 {
   background-color: #fff0f0;
+}
+.highlight .sa {
+  color: #080;
+  font-weight: bold;
 }
 .highlight .sc {
   color: #04D;
