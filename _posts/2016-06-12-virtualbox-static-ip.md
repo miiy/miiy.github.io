@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "VirtualBox设置静态IP"
+title: "VirtualBox 设置静态 IP"
 date: 2016-06-12
-tags: linux virtualbox centos8, debian
+tags: virtualbox
 ---
 
 ## 虚拟机网络配置方式

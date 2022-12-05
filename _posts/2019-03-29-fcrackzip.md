@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Git"
+title: "zip 密码破解 fcrackzip"
 date: 2019-03-29
-tags: zip crack
+tags: linux
 ---
 
 # fcrackzip

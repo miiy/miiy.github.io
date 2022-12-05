@@ -18,19 +18,24 @@
       </label>
 
       <div class="trigger">
-        {% assign my_pcount = false %}
+        {%- assign my_pcount = false -%}
         {%- for path in page_paths -%}
         {%- assign my_page = site.pages | where: "path", path | first -%}
-        {% comment %} Exclude paging {% endcomment %}
+        {%- comment -%} Exclude paging {%- endcomment -%}
         {%- if my_page.url contains '/posts/' -%}
-          {% if my_pcount %}
-            {% continue %}
+          {%- if my_pcount -%}
+            {%- continue -%}
           {%- endif -%}
-          {% assign my_pcount = true %}
+          {%- assign my_pcount = true -%}
         {%- endif -%}
         {%- if my_page.title -%}
         <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
         {%- endif -%}
+        {%- endfor -%}
+
+        {% assign collections = site.collections | where_exp:"collection", "collection.label != 'posts'" %}
+        {%- for collection in collections -%}
+        <a class="page-link" href="{{ collection.label | relative_url }}">{{ collection.label | escape | capitalize }}</a>
         {%- endfor -%}
       </div>
     </nav>

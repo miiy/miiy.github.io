@@ -1,8 +1,6 @@
 ---
 layout: post
 title: "hexdump"
-date: 2020-09-10
-tags: linux
 ---
 
 ## hexdump

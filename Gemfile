@@ -8,3 +8,4 @@ gem "jekyll-remote-theme"
 gem "jekyll-seo-tag"
 gem "jekyll-paginate"
 gem 'jekyll-watch'
+gem 'jekyll-sitemap'

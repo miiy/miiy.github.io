@@ -24,14 +24,30 @@ minima:
 
 # Build settings
 #theme: minima
-baseurl: /
+#baseurl: /blog
 remote_theme: jekyll/minima
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-sitemap
 
 # Pagination Settings
 paginate: 10
 paginate_path: "/posts/:num/"
+
+collections:
+  linux:
+    output: true
+    permalink: /:collection/:path
+  kubernetes:
+    output: true
+    permalink: /:collection/:path
+
+feed:
+  collections:
+    linux:
+      path: "/linux/feed.xml"
+    kubernetes:
+      path: "/kubernetes/feed.xml"

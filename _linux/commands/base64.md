@@ -1,8 +1,6 @@
 ---
 layout: post
-title: "linux-base64"
-date: 2021-03-05
-tags: linux
+title: "base64"
 ---
 
 ```bash

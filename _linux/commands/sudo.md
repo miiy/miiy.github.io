@@ -1,8 +1,6 @@
 ---
 layout: post
-title: "为用户设置 sudo 权限"
-date: 2020-12-12
-tags: linux
+title: "sudo"
 ---
 
 方法1：将用加入 sudo 用户组

@@ -5,10 +5,9 @@ date: 2016-06-13
 tags: php
 ---
 
-
 # Install
 
-##CentOS7下编译安装PHP
+## CentOS7下编译安装PHP
 
 ```bash
 yum install -y gcc gcc-c++ autoconf automake
@@ -52,7 +51,7 @@ cp php.ini-production /usr/local/php/etc/php.ini
 cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
 ```
 
-###设置php-fpm开机启动
+### 设置php-fpm开机启动
 
 ```
 cp /usr/local/src/php-5.6.16/sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm
@@ -60,7 +59,7 @@ chmod +x /etc/rc.d/init.d/php-fpm
 chkconfig php-fpm on
 ```
 
-###安装PHP扩展
+### 安装PHP扩展
 
 ```bash
 vi /usr/local/php/etc/php.ini #添加extension_dir与extension格式如下：
@@ -71,7 +70,7 @@ extension=memcache.so
 extension=memcached.so
 ```
 
-###Redis
+### Redis
 
 ```
 wget https://github.com/phpredis/phpredis/archive/2.2.7.tar.gz
@@ -140,7 +139,7 @@ echo $memcached->get('mykey');
 ?>
 ```
 
-##CentOS7下编译安装Redis
+## CentOS7下编译安装Redis
 
 ```bash
 cd /usr/local/src
@@ -234,7 +233,7 @@ cd libmemcached-1.0.18
 make && make install
 ```
 
-##CentOS7下编译安装Nodejs
+## CentOS7下编译安装Nodejs
 
 ```bash
 cd /usr/local/src
@@ -245,8 +244,10 @@ cd node-v4.2.1
 make && make install
 ```
 
-##在Centos7中安装Docker
+## 在Centos7中安装Docker
+
 Docker 软件包已经包含在默认的 CentOS-Extras 软件源里，安装命令如下：
+
 ```bash
 tee /etc/yum.repos.d/docker.repo <<-'EOF'
 [dockerrepo]

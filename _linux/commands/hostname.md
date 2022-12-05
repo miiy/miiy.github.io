@@ -1,8 +1,6 @@
 ---
 layout: post
-title: "linux 设置主机名称"
-date: 2020-12-12
-tags: linux
+title: "hostname"
 ---
 
 ```bash

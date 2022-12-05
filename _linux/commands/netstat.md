@@ -1,3 +1,8 @@
+---
+layout: post
+title: "netstat"
+---
+
 # netstat
 
 ## install

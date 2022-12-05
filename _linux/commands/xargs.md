@@ -1,8 +1,6 @@
 ---
 layout: post
 title: "xargs"
-date: 2019-12-13
-tags: linux
 ---
 
 # xargs
