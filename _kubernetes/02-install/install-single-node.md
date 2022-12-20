@@ -13,7 +13,46 @@ https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/inst
 
 ## 安装容器运行时
 
-使用 apt 安装 containerd
+### 二进制安装
+
+https://github.com/containerd/containerd/blob/main/docs/getting-started.md
+
+```bash
+sudo tar Cxzvf /usr/local/ containerd-1.6.14-linux-amd64.tar.gz
+xsudo mkdir -p /usr/local/lib/systemd/system
+sudo mv containerd.service /usr/local/lib/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now containerd
+
+sudo install -m 755 runc.amd64 /usr/local/sbin/runc
+
+sudo mkdir -p /opt/cni/bin
+sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.1.1.tgz 
+```
+
+修改 conatinerd 配置文件
+
+```bash
+vi /etc/containerd/config.toml
+```
+
+```conf
+version = 2
+
+[plugins."io.containerd.grpc.v1.cri"]
+    sandbox_image = "registry.aliyuncs.com/google_containers/pause:3.6"
+```
+
+
+查看配置是否生效
+
+```bash
+systemctl restart containerd
+containerd config dump|grep sandbox_image
+```
+
+
+### 使用 apt 安装 containerd
 
 https://docs.docker.com/engine/install/debian/
 
@@ -169,7 +208,6 @@ sudo sysctl --system
 
 ```bash
 kubeadm init \
---apiserver-advertise-address=10.0.2.15 \
 --image-repository registry.aliyuncs.com/google_containers \
 --kubernetes-version v1.26.0 \
 --pod-network-cidr=192.168.0.0/16 \
@@ -266,6 +304,7 @@ kubeadm join 10.0.2.15:6443 --token 4y8q06.72p867r3g2bxmgyq \
 
 ```bash
 echo export KUBECONFIG=/etc/kubernetes/admin.conf >> ~/.bashrc
+source ~/.bashrc
 ```
 
 普通用户
@@ -288,4 +327,6 @@ https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart
 
 kubectl apply -f calico.yaml
 kubectl apply -f custom-resources.yaml
+
+watch kubectl get pods -n calico-system
 ```
