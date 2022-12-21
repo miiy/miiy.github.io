@@ -13,7 +13,7 @@ https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/inst
 # 设置 hostname
 sudo hostnamectl set-hostname "k8s-master"
 # 修改 hosts
-sudo echo "10.0.2.20	k8s-master" >> /etc/hosts
+echo -e "\n192.168.122.99	k8s-master" |sudo tee -a /etc/hosts
 # 禁用 swap
 sudo swapoff -a
 sudo sed -ri 's/.*swap.*/#&/' /etc/fstab
@@ -55,7 +55,7 @@ sudo apt-get install containerd.io
 $ containerd config dump|grep sandbox_image
     sandbox_image = "registry.k8s.io/pause:3.6"
 
-$ mv /etc/containerd/config.toml /etc/containerd/config.toml.origin
+$ sudo mv /etc/containerd/config.toml /etc/containerd/config.toml.origin
 $ containerd config default|sudo tee /etc/containerd/config.toml
 $ sudo vi /etc/containerd/config.toml
 ```
@@ -137,9 +137,10 @@ sudo kubeadm init \
 --control-plane-endpoint=k8s-master \
 --image-repository registry.aliyuncs.com/google_containers \
 --kubernetes-version v1.26.0 \
---pod-network-cidr=192.168.0.0/16 \
---v=9
+--pod-network-cidr=192.168.0.0/16
 ```
+
+如果出错，加`--v=9`输出详细信息
 
 参数说明：
 
@@ -248,7 +249,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart
 
-下载 calico.yaml, custom-resources.yaml
+下载 tigera-operator.yaml, custom-resources.yaml
 
 ```bash
 # kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/tigera-operator.yaml
