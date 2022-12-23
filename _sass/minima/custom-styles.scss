@@ -12,16 +12,21 @@ body {
   max-width: 1200px;
 }
 
+.post-content h2 {
+  border-bottom: 1px solid #d2d9e0;
+}
+
 /**
  * highlight
  */
 .highlighter-rouge .highlight {
   background-color: #f6f8fa;
-  border: none;
 }
 
 pre, code {
   background: none;
+  border: none;
+  padding: 16px;
 }
 
 /**

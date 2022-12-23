@@ -3,7 +3,7 @@ layout: post
 title: "安装 kubernetes dashboard"
 ---
 
-https://github.com/kubernetes/dashboard
+<https://github.com/kubernetes/dashboard>
 
 ## Install
 
@@ -18,11 +18,11 @@ kubectl apply -f recommended.yaml
 kubectl proxy --address='0.0.0.0'
  ```
 
-http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+<http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/>
 
 ## 创建用户
 
-https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+<https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md>
 
 ```bash
 cat > dashboard-admin.yaml <<EOF

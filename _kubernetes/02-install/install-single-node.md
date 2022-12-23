@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "安装 kubernetes 单节点"
+title: "使用 kubeadm 安装 kubernetes 单节点学习环境"
 ---
 
 参考安装文档：
 
-https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+<https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/install-kubeadm/>
 
 ## 基础设置
 
@@ -23,7 +23,7 @@ sudo sed -ri 's/.*swap.*/#&/' /etc/fstab
 
 ### 使用 apt 安装 containerd
 
-https://docs.docker.com/engine/install/debian/
+<https://docs.docker.com/engine/install/debian/>
 
 ```bash
 sudo apt-get update
@@ -108,7 +108,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 ## 转发 IPv4 并让 iptables 看到桥接流量
 
-https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/
+<https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/>
 
 ```bash
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
@@ -150,7 +150,7 @@ sudo kubeadm init \
 - --service-cidr 默认值："10.96.0.0/12"，为服务的虚拟 IP 地址另外指定 IP 地址段
 - --pod-network-cidr 指明 pod 网络可以使用的 IP 地址段。如果设置了这个参数，控制平面将会为每一个节点自动分配 CIDRs。
 
-https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-init/
+<https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-init/>
 
 以下是 kubeadm init 的过程
 
@@ -245,19 +245,7 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## 安装 calico
-
-https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart
-
-下载 tigera-operator.yaml, custom-resources.yaml
-
-```bash
-# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/tigera-operator.yaml
-# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.24.5/manifests/custom-resources.yaml
-
-kubectl create -f tigera-operator.yaml
-kubectl create -f custom-resources.yaml
-```
+## 移除 master 污点
 
 由于装的是单节点的学习环境，需要移除 master 的污点，pod 才可以调度到 master 节点
 
@@ -269,35 +257,6 @@ $ kubectl taint node k8s-master node-role.kubernetes.io/control-plane-
 node/k8s-master untainted
 ```
 
-检查 event 发现有这样的 warning `serviceaccount "csi-node-driver" not found`，创建 serviceaccount
+## 下一步
 
-```bash
-$ kubectl get events -n calico-system
-LAST SEEN   TYPE      REASON         OBJECT                              MESSAGE
-45m         Warning   FailedCreate   daemonset/csi-node-driver           Error creating: pods "csi-node-driver-" is forbidden: error looking up service account calico-system/csi-node-driver: serviceaccount "csi-node-driver" not found
-
-$ kubectl get daemonset -n calico-system
-NAME              DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
-calico-node       1         1         1       1            1           kubernetes.io/os=linux   24h
-csi-node-driver   0         0         0       0            0           kubernetes.io/os=linux   24h
-
-$ kubectl create serviceaccount csi-node-driver -n calico-system
-serviceaccount/csi-node-driver created
-$ kubectl get serviceaccount -n calico-system  
-NAME                      SECRETS   AGE
-calico-kube-controllers   0         24h
-calico-node               0         24h
-calico-typha              0         24h
-csi-node-driver           0         10s
-default                   0         24h
-$ kubectl get daemonset -n calico-system
-NAME              DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
-calico-node       1         1         1       1            1           kubernetes.io/os=linux   24h
-csi-node-driver   1         1         1       1            1           kubernetes.io/os=linux   24h
-$ kubectl get pods -n calico-system 
-NAME                                       READY   STATUS    RESTARTS       AGE
-calico-kube-controllers-67df98bdc8-j4kpt   1/1     Running   1 (3h9m ago)   24h
-calico-node-vx68q                          1/1     Running   1 (3h9m ago)   24h
-calico-typha-657c94c555-8tdpk              1/1     Running   1 (3h9m ago)   24h
-csi-node-driver-xtmr8                      2/2     Running   0              73s
-```
+安装 CNI 网络插件
