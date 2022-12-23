@@ -14,7 +14,7 @@ kubectl apply -f <name.yaml>
 kubectl get nodes
 # 查看版本信息
 kubectl get version
-
+kubectl get cs
 kubectl get services
 # 查看 deployments
 kubectl get deployments
