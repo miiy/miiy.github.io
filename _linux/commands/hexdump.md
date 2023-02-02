@@ -10,7 +10,7 @@ hexdump - display file contents in ascii, decimal, hexadecimal, or octal
 hexdump - 以 ascii，十进制，十六进制或八进制显示文件内容
 
 ```bash
-[root@xx ~]# hexdump -h
+$ hexdump -h
 hexdump: invalid option -- 'h'
 
 Usage:
@@ -34,32 +34,32 @@ Options:
 ## Example
 
 ```bash
-[root@xx ~]# echo "ABCDEFGHIJKLMNOPQRSTUVWXYZ" > test.txt
+$ echo "ABCDEFGHIJKLMNOPQRSTUVWXYZ" > test.txt
 
-[root@xx ~]# hexdump -b test.txt
+$ hexdump -b test.txt
 0000000 101 102 103 104 105 106 107 110 111 112 113 114 115 116 117 120
 0000010 121 122 123 124 125 126 127 130 131 132 012
 000001b
 
-[root@xx ~]# hexdump -c test.txt
+$ hexdump -c test.txt
 0000000   A   B   C   D   E   F   G   H   I   J   K   L   M   N   O   P
 0000010   Q   R   S   T   U   V   W   X   Y   Z  \n
 000001b
 
-[root@xx ~]# hexdump -C test.txt
+$ hexdump -C test.txt
 00000000  41 42 43 44 45 46 47 48  49 4a 4b 4c 4d 4e 4f 50  |ABCDEFGHIJKLMNOP|
 00000010  51 52 53 54 55 56 57 58  59 5a 0a                 |QRSTUVWXYZ.|
 0000001b
 
-[root@xx ~]# hexdump -n 10 -C test.txt
+$ hexdump -n 10 -C test.txt
 00000000  41 42 43 44 45 46 47 48  49 4a                    |ABCDEFGHIJ|
 0000000a
 
-[root@xx ~]# hexdump -n 10 -s 2 -C test.txt
+$ hexdump -n 10 -s 2 -C test.txt
 00000002  43 44 45 46 47 48 49 4a  4b 4c                    |CDEFGHIJKL|
 0000000c
 
-[root@xx ~]# hexdump -n 100 -C a.zip
+$ hexdump -n 100 -C a.zip
 00000000  50 4b 03 04 14 00 00 00  08 00 d6 84 fb 50 9d ef  |PK...........P..|
 00000010  c8 43 7a 5d 00 00 f5 c0  01 00 21 00 00 00 d0 c2  |.Cz]......!.....|
 00000020  bd a8 ce c4 bc fe bc d0  2f 53 51 4c b4 f2 b7 d6  |......../SQL....|

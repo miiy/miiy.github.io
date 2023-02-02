@@ -2,36 +2,49 @@ title: Miiy's Blog
 author:
   name: miiy
   email: your-email@domain.com
-description: > # this means to ignore newlines until "show_excerpts:"
+
+# The `>` after `description:` means to ignore line-breaks until next key.
+# If you want to omit the line-break after the end of text, use `>-` instead.
+description: >
   Miiy's blog.
 
-show_excerpts: true # set to true to show excerpts on the homepage
-
-# Minima date format
-# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
-
-  # generate social links in footer
-  social_links:
-    - { platform: github,          user_url: "https://github.com/miiy" }
-    - { platform: rss,             user_url: "/feed.xml" }
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
-
 # Build settings
+
 #theme: minima
 #baseurl: /blog
 remote_theme: jekyll/minima
+
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
+
+# Theme-specific settings
+
+minima:
+  # Minima date format.
+  # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
+  #
+  # date_format: "%b %-d, %Y"
+
+  # Generate social links in footer.
+  #
+  social_links:
+    - { platform: github,          user_url: "https://github.com/miiy" }
+    - { platform: rss,             user_url: "/feed.xml" }
+
+# If you want to link only specific pages in your header, uncomment this and add the path to the pages in
+# order as they should show up.
+#
+# header_pages:
+#   - about.md
+
+# Set to `true` to show excerpts on the homepage.
+#
+show_excerpts: true
+
 
 # Pagination Settings
 paginate: 10

@@ -8,7 +8,7 @@ title: "xargs"
 xargs - build and execute command lines from standard input
 
 ```bash
-[root@localhost ~]# xargs --help
+$ xargs --help
 Usage: xargs [OPTION]... COMMAND [INITIAL-ARGS]...
 Run COMMAND with arguments INITIAL-ARGS and more arguments read from input.
 
