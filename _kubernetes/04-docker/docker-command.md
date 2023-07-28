@@ -96,14 +96,36 @@ To get more help with docker, check out our guides at https://docs.docker.com/go
 
 
 ```bash
+# list images
+docker images
+# list all images （none镜像不要删除，镜像是一层一层叠加起来的，存在依赖关系）
+docker images -a
+# dangling image（虚悬镜像: 镜像没有仓库名或没有标签）
+# list dangling image
+docker images -f dangling=true
+
+# list containers
+docker ps
+docker ps -a
+docker ps -aq
+
+docker rmi # 删除镜像
+# delete all conatiners
+docker rm $(docker ps -aq)
+# delete all images
+docker rmi $(docker images -aq)
+# stop exited conttainers
+docker stop $(docker ps -a | grep "Exited" | awk '{print $1 }') /
+# delete exited conttainers
+docker rm $(docker ps -a | grep "Exited" | awk '{print $1 }')
+# delete <none> images
+docker rmi $(docker images | grep "none" | awk '{print $3}')
+# delete dangling images
+docker rmi $(docker images -q -f dangling=true)
+
 docker pull # 下载镜像
-docker images # 列出镜像
-docker images -a # 列出所有镜像
-docker ps # 列出容器
-docker ps -a # 列出所有容器
 docker inspect # 查看镜像详细信息
 docker search # 搜索镜像
-docker rmi # 删除镜像
 docker build --progress plain -t test .
 # 运行镜像
 docker run -it containr:v1 bash
@@ -121,4 +143,29 @@ docker save -o php7-fpm.tar harbor.k8s/library/php7-fpm
 docker import php7-fpm.tar harbor.k8s/library/php7-fpm:latest
 # 推送
 docker push harbor.k8s/library/php7-fpm:latest
+```
+
+## docker-compose
+
+```bash
+# Start services
+docker-compose up -d nginx php-fpm mysql redis
+# Stop all service
+docker-compose stop
+# build
+docker-compose build php-fpm
+# Lists containers
+docker-compose ps
+# mysql
+docker-compose run --rm mysql bash
+# php-cli
+docker-compose run --rm php-cli bash
+# redis
+docker-compose run --rm redis redis-cli -h redis
+# node
+docker-compose run --rm node sh
+# bind port
+docker-compose run --rm -p 3001:3001 node sh
+# golang
+docker-compose run --rm golang bash
 ```

@@ -7,6 +7,73 @@ tags: php
 
 # Install
 
+```bash
+groupadd www
+useradd -s /sbin/nologin -g www -M www
+yum install -y gcc gcc-c++ autoconf \
+zlib zlib-devel openssl openssl-devel libxml2 libxml2-devel bzip2-devel libcurl-devel openldap-devel readline-devel epel-release libmcrypt-devel \
+libjpeg-devel libpng-devel freetype-devel gd-devel
+wget http://am1.php.net/distributions/php-7.2.0.tar.gz\
+&& tar -zxvf php-7.2.0.tar.gz \
+&& cd php-7.2.0 \
+&& ./configure \
+--prefix=/usr/local/php \
+--with-config-file-path=/usr/local/php/etc \
+--with-config-file-scan-dir=/usr/local/php/etc/conf.d \
+--enable-fpm \
+--with-fpm-user=www \
+--with-fpm-group=www \
+--enable-mbstring \
+--enable-mysqlnd \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd \
+--with-mysql-sock=/var/lib/mysql/mysql.sock \
+--enable-pcntl \
+--enable-shmop \
+--enable-opcache \
+--enable-soap \
+--enable-bcmath \
+--enable-sockets \
+--enable-ftp \
+--with-curl \
+--with-zip \
+--with-iconv \
+--with-openssl \
+--with-readline \
+--with-zlib \
+--with-bz2 \
+--enable-exif \
+--with-gd \
+--with-jpeg-dir \
+--with-png-dir \
+--with-freetype-dir \
+--enable-gd-native-ttf \
+ 
+&& make -j2 \
+&& make install \
+&& cp php.ini-development /usr/local/php/etc/php.ini \
+&& cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf \
+&& cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf \
+&& cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm \
+&& chmod +x /etc/init.d/php-fpm \
+&& chkconfig php-fpm on \
+&& echo "export PATH=/usr/local/php/bin:/usr/local/php/sbin:\$PATH" >> /etc/profile \
+&& source /etc/profile \
+&& pecl install xdebug redis memcached mongodb swoole mcrypt-1.0.1 \
+&& mkdir -p /usr/local/php/etc/conf.d \
+&& touch /usr/local/php/etc/conf.d/extension.ini \
+&& echo "zend_extension=xdebug" >> /usr/local/php/etc/conf.d/extension.ini \
+&& echo "xdebug.remote_enable=on" >> /usr/local/php/etc/conf.d/extension.ini \
+&& echo "xdebug.remote_port=9000" >> /usr/local/php/etc/conf.d/extension.ini \
+&& echo "xdebug.remote_connect_back=on" >> /usr/local/php/etc/conf.d/extension.ini \
+&& echo "xdebug.remote_handler=dbgp" >> /usr/local/php/etc/conf.d/extension.ini \
+&& echo "extension=redis" >> /usr/local/php/etc/conf.d/extension.ini \
+&& echo "extension=memcached" >> /usr/local/php/etc/conf.d/extension.ini \
+&& echo "extension=mongodb" >> /usr/local/php/etc/conf.d/extension.ini \
+&& echo "extension=swoole" >> /usr/local/php/etc/conf.d/extension.ini \
+&& echo "extension=mcrypt" >> /usr/local/php/etc/conf.d/extension.ini
+```
+
 ## CentOS7下编译安装PHP
 
 ```bash
@@ -59,212 +126,3 @@ chmod +x /etc/rc.d/init.d/php-fpm
 chkconfig php-fpm on
 ```
 
-### 安装PHP扩展
-
-```bash
-vi /usr/local/php/etc/php.ini #添加extension_dir与extension格式如下：
-
-extension_dir = "/usr/local/php/lib/php/extensions/no-debug-non-zts-20131226"
-extension=redis.so
-extension=memcache.so
-extension=memcached.so
-```
-
-### Redis
-
-```
-wget https://github.com/phpredis/phpredis/archive/2.2.7.tar.gz
-tar -zxvf phpredis-2.2.7.tar.gz
-cd phpredis-2.2.7
-/usr/local/php/bin/phpize
-./configure --with-php-config=/usr/local/php/bin/php-config
-make && make install
-```
-
-示例代码：
-
-```php
-<?php
-   $redis = new Redis();
-   $redis->connect('127.0.0.1', 6379);
-   $redis->set("mykey", "redis");
-   echo $redis->get("mykey");
-?>
-
-```
-
-### Memcache
-
-```
-cd /usr/local/src
-wget http://pecl.php.net/get/memcache-2.2.7.tgz
-tar -zxvf memcache-2.2.7.tgz
-cd memcache-2.2.7
-/usr/local/php/bin/phpize
-./configure --with-php-config=/usr/local/php/bin/php-config
-make && make install
-```
-
-示例代码
-
-```php
-<?php
-$memcache = new Memcache;
-$memcache->connect('localhost', 11211);
-$memcache->set('mykey', 'memcache');
-echo $memcache->get('mykey');
-?>
-```
-
-Memcached
-
-```bash
-cd /usr/local/src
-wget http://pecl.php.net/get/memcached-2.2.0.tgz
-tar -zxvf memcached-2.2.0.tgz
-cd memcached-2.2.0
-/usr/local/php/bin/phpize
-./configure --with-php-config=/usr/local/php/bin/php-config --with-libmemcached-dir=/usr/local/libmemcached --disable-memcached-sasl
-make && make install
-```
-
-测试代码
-
-```php
-<?php
-$memcached = new Memcached;
-$memcached->addServer('localhost', 11211);
-$memcached->set('mykey', 'memcached');
-echo $memcached->get('mykey');
-?>
-```
-
-## CentOS7下编译安装Redis
-
-```bash
-cd /usr/local/src
-wget http://download.redis.io/releases/redis-3.0.5.tar.gz
-tar -zxzf redis-3.0.5.tar.gz
-cd redis-3.0.5
-make #如果出错make MALLOC=libc
-make install
-```
-make install执行完成后，会在/usr/local/bin目录下生成一下个可执行文件：
-
-* redis-server：Redis服务器的daemon启动程序
-* redis-cli：Redis命令行操作工具。也可以用telnet根据其纯文本协议
-来操作
-* redis-benchmark：Redis性能测试工具，测试Redis在当前系统下的读写性能
-* redis-check-aof：数据修复
-* redis-check-dump：检查导出工具
-
-自启动
-
-```bash
-mkdir /etc/redis
-cp redis.conf /etc/redis/6379.conf
-vi /etc/redis/6379.conf #修改daemonize yes使进程在后台运行
-cp /usr/local/src/redis-3.0.5/utils/redis_init_script /etc/rc.d/init.d/redisd
-chmod +x /etc/rc.d/init.d/redisd
-vi /etc/rc.d/init.d/redisd #在头部加入#chkconfig: 2345 90 10不然会报错service redis does not support chkconfig
-chkconfig redisd on
-```
-
-参考：
-
-http://redis.io/download
-
-http://futeng.iteye.com/blog/2071867
-
-http://www.cnblogs.com/zhuhongbao/archive/2013/06/04/3117997.html
-
-http://www.runoob.com/redis/redis-php.html
-
-##CentOS7下编译安装Memcached
-
-```bash
-yum -y install libevent-deve #安装Memcached依赖
-cd /usr/local/src
-wget http://www.memcached.org/files/memcached-1.4.25.tar.gz
-tar -zxvf memcached-1.4.25.tar.gz
-cd memcached-1.4.25
-./configure --prefix=/usr/local/memcached
-make && make install
-```
-
-启动选项：
-* d是启动一个守护进程；
-* m是分配给Memcache使用的内存数量，单位是MB；
-* u是运行Memcache的用户；
-* l是监听的服务器IP地址，可以有多个地址；
-* p是设置Memcache监听的端口，，最好是1024以上的端口；
-* c是最大运行的并发连接数，默认是1024；
-* P是设置保存Memcache的pid文件。
-
-```bash
-/usr/local/memcached/bin/memcached -d -m 64m -p 11211 -u root
-```
-
-设置启动脚本
-
-```bash
-cp /usr/local/src/memcached-1.4.25/scripts/memcached.sysv /etc/rc.d/init.d/memcached
-chmod +x /etc/rc.d/init.d/memcached
-vi /etc/rc.d/init.d/memcached #修改start函数中daemon memcached位置
-chkconfig memcached on
-```
-
-参考：
-
-http://www.linuxidc.com/Linux/2015-04/116240.htm
-
-http://www.cnblogs.com/technet/archive/2011/09/11/2173485.html
-
-http://www.runoob.com/Memcached/php-connect-memcached.html
-
-##CentOS7下编译安装libmemcached
-
-```bash
-cd /usr/local/src
-wget https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz
-tar -zxvf libmemcached-1.0.18.tar.gz
-cd libmemcached-1.0.18
-./configure --prefix=/usr/local/libmemcached --with-memcached
-make && make install
-```
-
-## CentOS7下编译安装Nodejs
-
-```bash
-cd /usr/local/src
-wget https://nodejs.org/dist/v4.2.1/node-v4.2.1.tar.gz
-tar -zxvf node-v4.2.1.tar.gz
-cd node-v4.2.1
-./configure
-make && make install
-```
-
-## 在Centos7中安装Docker
-
-Docker 软件包已经包含在默认的 CentOS-Extras 软件源里，安装命令如下：
-
-```bash
-tee /etc/yum.repos.d/docker.repo <<-'EOF'
-[dockerrepo]
-name=Docker Repository
-baseurl=https://yum.dockerproject.org/repo/main/centos/$releasever/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum.dockerproject.org/gpg
-EOF
-yum install docker-engine
-systemctl start docker #启动Docker
-#验证Docker是否正常工作
-docker pull centos #从仓库下载镜像
-docker images #显示本地镜像
-docker run -i -t centos /bin/bash #使用镜像来启动一个容器。
-```
-
-参考：
-
-https://docs.docker.com/engine/installation/centos/
