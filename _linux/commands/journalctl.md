@@ -11,6 +11,7 @@ journalctl：检索 systemd 日志
 - -e --pager-end             Immediately jump to the end in the pager
 - -f --follow                Follow the journal
 - -u --unit=UNIT             Show logs from the specified unit
+- -x --catalog               Add message explanations where available
 
 ```bash
 # 显示所有的消息
@@ -19,4 +20,6 @@ $ journalctl
 $ journalctl -b
 # 显示制定单元的所有消息
 $ journalctl -u netcfg
+
+$ sudo journalctl -xeu netcfg
 ```
