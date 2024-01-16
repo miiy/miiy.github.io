@@ -2,7 +2,7 @@
 layout: post
 title: "安装 gitlab"
 date: 2023-09-04
-tags: gitlab
+tags: linux
 ---
 
 ## Requirements

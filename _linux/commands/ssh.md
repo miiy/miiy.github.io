@@ -69,8 +69,13 @@ PermitRootLogin yes
 root@debian:~# systemctl restart sshd
 ```
 
+## Examples
 
-
+```bash
+ssh debian@127.0.0.1 -p6000 -L 3399:127.0.0.1:3389
+ssh -p2200 -R 9200:127.0.0.1:9200 root@192.168.0.1
+ssh root@192.168.0.1 "cd /data/deploy/; ./start.sh"
+```
 
 
 

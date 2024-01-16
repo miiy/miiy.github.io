@@ -2,7 +2,7 @@
 layout: post
 title: "python 设置镜像源"
 date: 2023-11-08
-tags: linux
+tags: python
 ---
 
 ```bash
