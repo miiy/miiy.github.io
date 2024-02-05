@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "VideoReTalking 安装"
+title: "VideoReTalking"
 date: 2024-01-18
 tags: AI
 ---

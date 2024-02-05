@@ -4,6 +4,7 @@ title: "date"
 ---
 
 help
+
 ```bash
 $ date --help
 Usage: date [OPTION]... [+FORMAT]
@@ -97,6 +98,7 @@ For complete documentation, run: info coreutils 'date invocation'
 ```
 
 Man
+
 ```date
 $ man date
 DATE(1)                                                  User Commands                                                  DATE(1)
