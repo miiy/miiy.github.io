@@ -202,6 +202,32 @@ rsync -av src dst
 
 默认情况下，rsync 只确保源目录的所有内容（明确排除的文件除外）都复制到目标目录。它不会使两个目录保持相同，并且不会删除文件。如果要使得目标目录成为源目录的镜像副本，则必须使用 --delete 参数，这将删除只存在于目标目录、不存在于源目录的文件。
 
+使用 --dry-run 模拟命令执行
+
+```bash
+rsync -av --delete --dry-run src dst
+```
+
+实际执行命令
+
 ```bash
 rsync -av --delete src dst
+```
+
+如果碰到错误，使用 --ignore-errors 忽略错误冰继续同步其他文件
+
+```
+sending incremental file list
+rsync: [sender] readlink_stat("/home/debian/thinclient_drives") failed: Permission denied (13)
+IO error encountered -- skipping file deletion
+```
+
+```bash
+rsync -av --delete --ignore-errors src dst
+```
+
+排除一个文件夹
+
+```bash
+rsync -avz --exclude 'exclude_dir/' /path/to/src/ user@remote_host:/path/to/destination/
 ```
