@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "docker 登录私库时提示 x509: certificate signed by unknown authority"

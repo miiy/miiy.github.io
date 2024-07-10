@@ -2,7 +2,7 @@
 layout: post
 title: "VirtualBox 设置静态 IP"
 date: 2016-06-12
-tags: virtualbox
+tags: linux
 ---
 
 ## 虚拟机网络配置方式

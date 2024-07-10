@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "php install"
+title: "install php"
 date: 2016-06-13
 tags: php
 ---

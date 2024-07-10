@@ -5,6 +5,8 @@ date: 2020-12-12
 tags: jenkins
 ---
 
+<https://www.jenkins.io/zh/>
+
 ## 使用 docker 启动 jenkins
 
 https://www.jenkins.io/doc/book/installing/docker/

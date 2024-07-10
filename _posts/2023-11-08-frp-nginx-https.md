@@ -68,7 +68,11 @@ localPort = 443
 customDomains = ["a.test.com"]
 ```
 
-参考：
+## frp windows 设置开机自启
+
+<https://blog.itpub.net/69955379/viewspace-2731754/>
+
+## Refrences
 
 https://github.com/fatedier/frp/issues/610
 
