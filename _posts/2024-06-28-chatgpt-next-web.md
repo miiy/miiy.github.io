@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "部署 ChatGPT Next Web"
+title: "使用 ChatGPT Next Web 部署私人 ChatGPT 网页应用"
 date: 2024-06-28
 tags: AI
 ---

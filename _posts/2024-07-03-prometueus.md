@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "部署 prometueus"
+title: "prometueus监控"
 date: 2024-07-03
 tags: linux
 ---
@@ -267,4 +267,10 @@ docker run --name alertmanager -d --restart=always \
     prom/alertmanager:v0.27.0 --config.file=/etc/alertmanager/alertmanager.yml
 ```
 
+## 参考
 
+Prometheus+Grafana监控MySQL_ITPUB博客：<https://blog.itpub.net/69982604/viewspace-2743207/>
+
+Introduction | prometheus-book：<https://yunlzheng.gitbook.io/prometheus-book>
+
+Kubernetes技术栈-K8s|Docker|Istio|Python|Golang|云原生：<https://www.k8stech.net/>

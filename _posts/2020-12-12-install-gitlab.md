@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "gitlab"
+title: "安装 gitlab"
 date: 2020-12-12
-tags: gitlab
+tags: linux
 ---
 
 ## Requirements
@@ -22,7 +22,6 @@ Memory:
 推荐 4核，4G
 
 
-
 ## Install Gitlab using Docker Engine
 
 <https://docs.gitlab.com/ee/install/docker.html>
@@ -30,9 +29,9 @@ Memory:
 ```bash
 GITLAB_HOME=/data/gitlab
 sudo docker run --detach \
-  --hostname gitlab.k8s \
-  --add-host jenkins.k8s:10.0.2.20 \
-  --add-host harbor.k8s:10.0.2.20 \
+  --hostname gitlab.example.com \
+  --add-host jenkins.example.com:10.0.2.20 \
+  --add-host harbor.example.com:10.0.2.20 \
   --publish 443:443 --publish 80:80 --publish 8022:22 \
   --name gitlab \
   --restart always \
@@ -49,23 +48,23 @@ sudo docker run --detach \
 mkdir -p /data/gitlab/config/ssl
 cd /data/gitlab/config/ssl
 
-openssl genrsa -out gitlab.k8s.key 4096
+openssl genrsa -out gitlab.example.com.key 4096
 
 openssl req -sha512 -new \
--subj "/C=CN/ST=Beijing/L=Beijing/O=exampleOrg/CN=gitlab.k8s" \
--key gitlab.k8s.key \
--out gitlab.k8s.csr
+-subj "/C=CN/ST=Beijing/L=Beijing/O=exampleOrg/CN=gitlab.example.com" \
+-key gitlab.example.com.key \
+-out gitlab.example.com.csr
 
 openssl x509 -req  -days 3650 \
--in gitlab.k8s.csr \
--signkey gitlab.k8s.key \
--out gitlab.k8s.crt
+-in gitlab.example.com.csr \
+-signkey gitlab.example.com.key \
+-out gitlab.example.com.crt
 
 vi /data/gitlab/config/gitlab.rb
 ```
 
 ```text
-external_url 'https://gitlab.k8s'
+external_url 'https://gitlab.example.com'
 nginx['redirect_http_to_https'] = true
 ```
 

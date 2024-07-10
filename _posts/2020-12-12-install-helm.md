@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Helm"
+title: "安装 Helm"
 date: 2020-12-12
 tags: kubernetes
 ---
 
 ## Install
 
-https://helm.sh/zh/docs/intro/install/
+<https://helm.sh/zh/docs/intro/install/>
 
 ```bash
 cd /usr/local/src

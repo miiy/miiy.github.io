@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "解决idea CPU占用过高的问题"
+title: "解决 idea CPU 占用过高的问题"
 date: 2023-07-28
 tags: linux
 ---

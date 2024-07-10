@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Harbor"
+title: "安装 Harbor"
 date: 2020-12-12
 tags: kubernetes
 ---
@@ -30,17 +30,17 @@ https://goharbor.io/docs/2.2.0/install-config/configure-https/
 mkdir -p /data/harbor/certs
 cd /data/harbor/harbor
 
-openssl genrsa -out harbor.k8s.key 4096
+openssl genrsa -out harbor.example.com.key 4096
 
 openssl req -sha512 -new \
-    -subj "/C=CN/ST=Beijing/L=Beijing/O=exampleOrg/CN=harbor.k8s" \
-    -key harbor.k8s.key \
-    -out harbor.k8s.csr
+    -subj "/C=CN/ST=Beijing/L=Beijing/O=exampleOrg/CN=harbor.example.com" \
+    -key harbor.example.com.key \
+    -out harbor.example.com.csr
 
 openssl x509 -req  -days 3650 \
-    -in harbor.k8s.csr \
-    -signkey harbor.k8s.key \
-    -out harbor.k8s.crt
+    -in harbor.example.com.csr \
+    -signkey harbor.example.com.key \
+    -out harbor.example.com.crt
 ```
 
 修改配置文件
@@ -52,10 +52,10 @@ vi harbor.yaml
 ```
 
 ```text
-hostname: harbor.k8s
+hostname: harbor.example.com
 
-certificate: /data/harbor/certs/harbor.k8s.crt
-private_key: /data/harbor/certs/harbor.k8s.key
+certificate: /data/harbor/certs/harbor.example.com.crt
+private_key: /data/harbor/certs/harbor.example.com.key
 
 data_volume: /data/harbor/data
 ```
@@ -81,19 +81,19 @@ vi /etc/hosts
 ```
 
 ```text
-10.0.2.20       harbor.k8s
+10.0.2.20       harbor.example.com
 ```
 
 ```bash
 vi /etc/docker/daemon.json
 {
     "registry-mirrors": ["http://hub-mirror.c.163.com"],
-    "insecure-registries": ["https://harbor.k8s"]
+    "insecure-registries": ["https://harbor.example.com"]
 }
 
 systemctl restart docker
 
-docker login -u admin harbor.k8s
+docker login -u admin harbor.example.com
 ```
 
 在安装了 docker-compose 的机器上登录会报错，卸载 docker-compose 登录后在重新安装 docker-compose， 或使用其他机器登录
@@ -103,12 +103,12 @@ Error saving credentials: error storing credentials - err: exit status 1, out: `
 ```
 
 ```bash
-root@debian:~# docker tag nginx:latest harbor.k8s/library/nginx:v1
+root@debian:~# docker tag nginx:latest harbor.example.com/library/nginx:v1
 root@debian:~# docker images
 REPOSITORY                                           TAG           IMAGE ID       CREATED         SIZE
 nginx                                                latest        6084105296a9   3 hours ago     133MB
-harbor.k8s/library/nginx                             v1            6084105296a9   3 hours ago     133MB
-root@debian:~# docker push harbor.k8s/library/nginx:v1
+harbor.example.com/library/nginx                             v1            6084105296a9   3 hours ago     133MB
+root@debian:~# docker push harbor.example.com/library/nginx:v1
 ```
 
 ## MacOS 下安装

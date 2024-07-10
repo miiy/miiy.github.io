@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Tekton"
+title: "安装 Tekton"
 date: 2020-12-12
-tags: linux
+tags: kubernetes
 ---
 
 ## 安装 Tekton

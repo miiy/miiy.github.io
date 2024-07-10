@@ -1,10 +1,9 @@
 ---
 layout: post
-title: "VideoReTalking"
+title: "VideoReTalking 基于音频驱动的嘴型同步头像视频编辑"
 date: 2024-01-18
 tags: AI
 ---
-
 
 ## Install
 

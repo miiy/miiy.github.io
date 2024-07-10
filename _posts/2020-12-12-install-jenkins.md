@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jenkins"
+title: "安装 Jenkins"
 date: 2020-12-12
 tags: jenkins
 ---
@@ -12,7 +12,7 @@ https://www.jenkins.io/doc/book/installing/docker/
 ```bash
 sudo docker run -u root --name jenkins -d \
     --add-host gitlab.k8s:10.0.2.20 \
-    --add-host harbor.k8s:10.0.2.20 \
+    --add-host harbor.example.com:10.0.2.20 \
     --restart always \
     -p 8082:8080 -p 50000:50000 \
     -v /data/jenkins/jenkins_home:/var/jenkins_home \
@@ -31,7 +31,7 @@ Docker plugin, Docker Pipeline, GitLab Plugin
 
 构建触发器 
 
-选择 Build when a change is pushed to GitLab. GitLab webhook URL: http://jenkins.k8s:8082/project/laravel
+选择 Build when a change is pushed to GitLab. GitLab webhook URL: http://jenkins.example.com:8082/project/laravel
 
 点击 高级 生成 Secret token
 
@@ -50,8 +50,8 @@ node {
     }
         
     stage('Build Docker'){
-        docker.withRegistry("https://harbor.k8s:4433", 'deb9142d-8e3d-48cb-9d58-b7bdebb17d41') {
-            def customImage = docker.build("harbor.k8s:4433/library/laravel:${env.BUILD_ID}")
+        docker.withRegistry("https://harbor.example.com:4433", 'deb9142d-8e3d-48cb-9d58-b7bdebb17d41') {
+            def customImage = docker.build("harbor.example.com:4433/library/laravel:${env.BUILD_ID}")
             /* Push the container to the custom Registry */
             customImage.push()
         }

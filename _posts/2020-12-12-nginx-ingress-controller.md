@@ -2,7 +2,7 @@
 layout: post
 title: "Nginx Ingress Controller"
 date: 2020-12-12
-tags: kubernetes, ingress
+tags: kubernetes
 ---
 
 ## 安装 Nginx Ingress Controller
