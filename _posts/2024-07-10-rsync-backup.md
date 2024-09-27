@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "使用 crontab + rsync 自动备份到备用硬盘"
-date: 2024-06-28
+date: 2024-07-10
 tags: linux
 ---
 

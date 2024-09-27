@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "install golang"
-date: 2024-06-28
+date: 2024-07-10
 ---
 
 <https://golang.google.cn/doc/install>

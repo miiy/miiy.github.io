@@ -11,7 +11,7 @@ ChatGPT Next Web: <https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web>
 docker run --name chatgpt-next-web -d --restart=always \
     --log-opt max-size=1g \
     --net frontend \
-    yidadaa/chatgpt-next-web
+    yidadaa/chatgpt-next-web:v2.14.2
 ```
 
 端口

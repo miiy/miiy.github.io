@@ -229,5 +229,11 @@ rsync -av --delete --ignore-errors src dst
 排除一个文件夹
 
 ```bash
-rsync -avz --exclude 'exclude_dir/' /path/to/src/ user@remote_host:/path/to/destination/
+rsync -avz --exclude 'exclude_dir/' /src user@remote_host:/dst
+```
+
+指定端口
+
+```bash
+rsync -avz -e "ssh -p 6000" --progress /src user@remote_host:/dst
 ```
