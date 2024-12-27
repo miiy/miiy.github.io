@@ -41,3 +41,9 @@ $wc -l file1 file2
 $ cat file1|wc -l
 20
 ```
+
+统计一个目录下所有文件的行数
+
+```bash
+find . -type f | xargs cat | wc -l 
+```
