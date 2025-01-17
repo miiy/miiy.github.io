@@ -8,6 +8,8 @@ title: "Docker 安装"
 
 https://docs.docker.com/engine/install/
 
+阿里云 docker-ce 镜像：https://developer.aliyun.com/mirror/docker-ce
+
 ### Debian
 
 ```bash

@@ -150,7 +150,7 @@ docker run --name prometheus -d --restart=always \
     -v /data/prometheus/config/alert.yml:/etc/prometheus/alert.yml \
     -v /data/prometheus/data:/prometheus \
     --net monitoring \
-    prom/prometheus:v2.53.0 --config.file=/etc/prometheus/prometheus.yml --web.config.file=/etc/prometheus/web-config.yml
+    prom/prometheus:v3.1.0 --config.file=/etc/prometheus/prometheus.yml --web.config.file=/etc/prometheus/web-config.yml
 ```
 
 --user 1000
@@ -172,7 +172,7 @@ docker run -d --name=grafana --restart=always \
     --user "$(id -u)" \
     -v /data/grafana/data:/var/lib/grafana \
     --net monitoring \
-    grafana/grafana:11.1.0
+    grafana/grafana:11.4.0
 ```
 
 ```bash
@@ -231,7 +231,7 @@ docker run --name pushgateway -d --restart=always \
     -p 9091:9091 \
     -v /data/pushgateway/config:/pushgateway/config \
     --network monitoring \
-    prom/pushgateway:v1.9.0 --web.config.file=/pushgateway/config/web-config.yaml
+    prom/pushgateway:v1.11.0 --web.config.file=/pushgateway/config/web-config.yaml
 ```
 
 发送 metrics
@@ -241,7 +241,53 @@ echo "my_metric 2"  | gzip | curl --insecure -u username:password -H 'Content-En
 curl --insecure -u http:password -X DELETE  https://pushgateway:9091/metrics/job/test-job/instance/nodename
 ```
 
+## PushProx
+
+通过 PushProx 抓取内网的 node-exporter
+
+<https://github.com/prometheus-community/PushProx>
+
+prometheus-community-PushProx介绍：<https://blog.csdn.net/doyzfly/article/details/120752044>
+
+```bash
+docker pull prometheuscommunity/pushprox:master
+```
+
+server
+
+```bash
+docker run --name pushprox-proxy -d --restart=always \
+    --network monitoring \
+    prometheuscommunity/pushprox:v0.2.0
+
+docker network connect frontend pushprox-proxy
+```
+
+curl {pushprox-proxy}:8080/metrics
+
+创建自签名证书
+
+配置 nginx
+
+client
+
+```bash
+docker run --name pushprox-client -d --restart=always \
+    --entrypoint /app/pushprox-client \
+    --network backend \
+    --add-host pushprox.example.com:39.100.100.100 \
+    -v /home/debian/data/pushprox-client/certs/:/app/certs/ \
+    prometheuscommunity/pushprox:v0.2.0 \
+    --fqdn=node-exporter
+    --proxy-url=http://pushprox.example.com/ \
+    --tls.cacert=/app/certs/ca.crt \
+    --tls.cert=/app/certs/client.crt \
+    --tls.key=/app/certs/client.key
+```
+
 ## node-exporter-pusher
+
+推荐使用 PushProx 抓取
 
 将内网的 node-exporter 发送到 pushgateway
 
@@ -251,12 +297,6 @@ docker run --name node-exporter-pusher -d --restart=always \
     --network backend \
     node-exporter-pusher
 ```
-
-## PushProx
-
-<https://github.com/prometheus-community/PushProx>
-
-prometheus-community-PushProx介绍：<https://blog.csdn.net/doyzfly/article/details/120752044>
 
 ## alertmanager
 

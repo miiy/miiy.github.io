@@ -26,8 +26,3 @@ docker run --name attu -d \
   -e MILVUS_URL={milvus server IP}:19530 \
   zilliz/attu:v2.4
 ```
-
-docker run --name attu -d \
-  -p 127.0.0.1:3000:3000 \
-  -e MILVUS_URL=172.17.0.3:19530 \
-  zilliz/attu:v2.4
