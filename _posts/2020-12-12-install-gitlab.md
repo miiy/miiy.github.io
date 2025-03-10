@@ -71,11 +71,16 @@ openssl x509 -req  -days 3650 \
 vi /data/gitlab/config/gitlab.rb
 ```
 
-```text
+```rb
 external_url 'https://gitlab.example.com'
 letsencrypt['enable'] = false
 nginx['redirect_http_to_https'] = true
 gitlab_rails['gitlab_shell_ssh_port'] = 2022
+```
+
+内存如果有限可以设置一下两个参数，但会增加CPU运算
+
+```rb
 # 禁用 Puma 集群模式，减少内存占用
 puma['worker_processes'] = 0
 # 设置 Sidekiq 进程数量

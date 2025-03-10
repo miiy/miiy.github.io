@@ -19,6 +19,7 @@ Status: active
 sudo ufw allow 22/tcp
 sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
+sudo ufw allow from 172.18.0.0/16 to any port 8080 proto tcp
 ```
 
 ```bash
