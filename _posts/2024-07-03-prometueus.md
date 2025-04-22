@@ -189,7 +189,7 @@ docker run -d --name node-exporter --restart=always \
     -v "/sys:/host/sys:ro" \
     -v "/:/rootfs:ro" \
     --net monitoring \
-    prom/node-exporter:v1.8.1
+    prom/node-exporter:v1.9.0
 ```
 
 ## push-gateway

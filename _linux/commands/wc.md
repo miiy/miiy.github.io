@@ -47,3 +47,9 @@ $ cat file1|wc -l
 ```bash
 find . -type f | xargs cat | wc -l 
 ```
+
+查看文件夹下的文件数
+
+```bash
+ls -l | wc -l
+```

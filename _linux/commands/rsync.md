@@ -237,3 +237,9 @@ rsync -avz --exclude 'exclude_dir/' /src user@remote_host:/dst
 ```bash
 rsync -avz -e "ssh -p 6000" --progress /src user@remote_host:/dst
 ```
+
+传输大文件，显示进度信息
+
+```bash
+rsync -avP /pth/to/data.tar.gz user@remote_host:/dst/data.tar.gz
+```

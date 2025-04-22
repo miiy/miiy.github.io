@@ -153,3 +153,10 @@ $ head -v file1
 9
 10
 ```
+
+使用 head 和 tail 把一个文件的前900行移动到另一个文件中
+
+```bash
+head -n 900 source.txt > destination.txt
+tail -n +901 source.txt > temp.txt && mv temp.txt source.txt
+```
