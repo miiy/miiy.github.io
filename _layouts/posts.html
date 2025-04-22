@@ -29,7 +29,7 @@ layout: base
             {{ post.title | escape }}
           </a>
         </h3>
-        {%- if site.show_excerpts -%}
+        {%- if site.minima.show_excerpts -%}
           {{ post.content | strip_html | truncate: '250' | escape }}
         {%- endif -%}
       </li>
