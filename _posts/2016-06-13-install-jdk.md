@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "install jdk"
+title: "安装 JDK"
 date: 2016-06-13
 tags: linux
 ---

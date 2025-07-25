@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "MacOS编译安装Nginx"
+title: "MacOS 编译安装 Nginx"
 date: 2020-07-09
-tags: macos
+tags: other
 ---
 
 ## Install

@@ -22,3 +22,9 @@ ps aux
 ```bash
 ps aux --sort=-%mem | head -10
 ```
+
+查看系统上正在运行的进程，并以树状图（forest）显示进程之间的层级关系。
+
+```bash
+ps aux --forest
+```

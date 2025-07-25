@@ -2,7 +2,7 @@
 layout: post
 title: "安装 Jenkins"
 date: 2020-12-12
-tags: jenkins
+tags: linux
 ---
 
 <https://www.jenkins.io/zh/>

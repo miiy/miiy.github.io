@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "MacOS编译安装Redis"
+title: "MacOS 编译安装 Redis"
 date: 2023-02-02
-tags: macos
+tags: other
 ---
 
 ## INSTALL

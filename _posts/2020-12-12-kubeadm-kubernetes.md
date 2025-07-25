@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "使用kubeadm快速安装kubernetes集群"
+title: "使用 kubeadm 快速安装 kubernetes 集群"
 date: 2020-12-12
 tags: kubernetes
 ---
@@ -345,9 +345,11 @@ clusterrolebinding.rbac.authorization.k8s.io/admin-user created
 
 获取 Token
 
+{% raw %}
 ```bash
 kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
 ```
+{% endraw %}
 
 打开 https://NodeIp:30443/
 

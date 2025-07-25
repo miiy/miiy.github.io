@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "安装zookeeper"
+title: "安装 zookeeper"
 date: 2022-07-14
 tags: linux
 ---

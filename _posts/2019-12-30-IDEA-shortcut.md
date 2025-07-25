@@ -2,7 +2,7 @@
 layout: post
 title: "IDEA 快捷键"
 date: 2019-12-30
-tags: idea
+tags: other
 ---
 
 ## 窗口

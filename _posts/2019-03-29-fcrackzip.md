@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "zip 密码破解 fcrackzip"
+title: "使用 fcrackzip 破解 zip 密码"
 date: 2019-03-29
 tags: linux
 ---

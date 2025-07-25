@@ -116,6 +116,7 @@ scrape_configs:
 
 alert.yml
 
+{% raw %}
 ```yml
 groups:
 - name: Instances
@@ -130,6 +131,7 @@ groups:
       description: '{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minutes.'
       summary: 'Instance {{ $labels.instance }} down'
 ```
+{% endraw %}
 
 创建网络
 

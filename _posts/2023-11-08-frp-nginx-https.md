@@ -72,6 +72,27 @@ customDomains = ["a.test.com"]
 
 <https://blog.itpub.net/69955379/viewspace-2731754/>
 
+## frp Linux 设置开机自启
+
+/etc/systemd/system/frpc.service
+
+```txt
+[Unit]
+Description = frp client
+After = network.target syslog.target
+Wants = network.target
+
+[Service]
+Type = simple
+ExecStart = /usr/local/frp/frpc -c /usr/local/frp/frpc-ali.toml
+Restart=always
+RestartSec=15s
+
+[Install]
+WantedBy = multi-user.target
+```
+
+
 ## Refrences
 
 https://github.com/fatedier/frp/issues/610

@@ -2,7 +2,7 @@
 layout: post
 title: "Visual Studio Code 常用操作"
 date: 2019-12-13
-tags: vscode
+tags: other
 ---
 <!-- TOC -->
 

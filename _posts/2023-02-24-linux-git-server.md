@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "配置git服务仓库"
+title: "配置 git 服务仓库"
 date: 2023-02-24
 tags: linux
 ---
@@ -9,7 +9,7 @@ tags: linux
 
 ```bash
 $ groupadd git
-$ useradd git -M -g git -s /sbin/nologin 
+$ useradd git -M -g git -s /sbin/nologin
 $ mkdir -p /data/git
 $ cd /data/git
 $ git init --bare testrepo.git

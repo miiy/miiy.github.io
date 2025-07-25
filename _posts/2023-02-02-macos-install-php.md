@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "MacOS编译安装PHP"
+title: "MacOS 编译安装 PHP"
 date: 2023-02-02
-tags: macos
+tags: other
 ---
 
 ## INSTALL PHP7.4.33

@@ -6,9 +6,9 @@ title: "Docker 安装"
 
 ## Install
 
-https://docs.docker.com/engine/install/
+<https://docs.docker.com/engine/install>
 
-阿里云 docker-ce 镜像：https://developer.aliyun.com/mirror/docker-ce
+阿里云 docker-ce 镜像：<https://developer.aliyun.com/mirror/docker-ce>
 
 ### Debian
 
@@ -35,4 +35,19 @@ cat <<EOF | sudo tee /etc/docker/daemon.json
     "registry-mirrors": ["http://hub-mirror.c.163.com"]
 }
 EOF
+```
+
+### 迁移 docker 数据目录
+
+```bash
+sudo systemctl stop docker
+sudo systemctl stop docker.socket
+sudo rsync -aP /var/lib/docker/ /mnt/data/docker/
+
+sudo mv /var/lib/docker /var/lib/docker.old
+
+sudo systemctl start docker
+
+sudo systemctl start docker
+sudo docker info
 ```

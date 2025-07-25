@@ -2,7 +2,7 @@
 layout: post
 title: "MacOS 快捷键"
 date: 2019-12-30
-tags: macos
+tags: other
 ---
 
 <https://support.apple.com/zh-cn/HT201236>

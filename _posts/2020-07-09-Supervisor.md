@@ -2,7 +2,7 @@
 layout: post
 title: "Supervisor 使用总结"
 date: 2020-07-09
-tags: other supervisor
+tags: other
 ---
 
 Supervisor: A Process Control System

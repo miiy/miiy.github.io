@@ -2,7 +2,7 @@
 layout: post
 title: "MacOS 如何查看硬盘健康度"
 date: 2024-04-08
-tags: mac
+tags: other
 ---
 
 ## 安装
