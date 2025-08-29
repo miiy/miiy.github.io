@@ -3,6 +3,12 @@ layout: post
 title: "清理 docker"
 ---
 
+查看容器占用磁盘空间
+
+```bash
+sudo ls /var/lib/docker/containers | xargs -I {} sudo du -sh /var/lib/docker/containers/{}
+```
+
 删除容器
 
 ```bash

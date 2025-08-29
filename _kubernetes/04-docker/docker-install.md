@@ -39,6 +39,14 @@ EOF
 
 ### 迁移 docker 数据目录
 
+/etc/docker/daemon.json
+
+```conf
+{
+  "data-root": "/mnt/data/docker"
+}
+```
+
 ```bash
 sudo systemctl stop docker
 sudo systemctl stop docker.socket
