@@ -19,7 +19,7 @@ docker run -d \
   -e TZ=Etc/UTC \
   -e DOCKER_MODS=linuxserver/mods:universal-calibre `#optional` \
   -e OAUTHLIB_RELAX_TOKEN_SCOPE=1 `#optional` \
-  -v /home/debian/data/www/calibre-web/config:/config \
+  -v /srv/docker/www/calibre-web/config:/config \
   -v /home/debian/Calibre\ Library:/books \
   --restart unless-stopped \
   --network frontend \

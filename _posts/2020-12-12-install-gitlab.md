@@ -31,25 +31,26 @@ Memory:
 <https://docs.gitlab.com/omnibus/settings/ssl/index.html>
 
 ```bash
-GITLAB_HOME=/data/gitlab
+GITLAB_HOME=/srv/docker/gitlab
 sudo docker run --detach \
-  --hostname gitlab.example.com \
-  # --publish 443:443 --publish 80:80 --publish 2022:22 \
-  --publish 2022:22 \
+  --hostname gitlab.mydomain.com \
+  --env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.mydomain.com'" \
+  --publish 127.0.0.1:2022:22 \
   --name gitlab \
   --restart always \
   --volume $GITLAB_HOME/config:/etc/gitlab \
   --volume $GITLAB_HOME/logs:/var/log/gitlab \
   --volume $GITLAB_HOME/data:/var/opt/gitlab \
+  --network frontend \
   --shm-size 256m \
-  gitlab/gitlab-ce:17.7.0-ce.0
+  gitlab/gitlab-ce:18.4.0-ce.0
 ```
 
 ## 启用 https
 
 ```bash
-mkdir -p /data/gitlab/config/ssl
-cd /data/gitlab/config/ssl
+mkdir -p /srv/docker/gitlab/config/ssl
+cd /srv/docker/gitlab/config/ssl
 
 openssl genrsa -out gitlab.example.com.key 4096
 
@@ -68,7 +69,7 @@ openssl x509 -req  -days 3650 \
 修改配置文件
 
 ```bash
-vi /data/gitlab/config/gitlab.rb
+vi /srv/docker/gitlab/config/gitlab.rb
 ```
 
 ```rb

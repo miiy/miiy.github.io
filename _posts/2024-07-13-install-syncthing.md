@@ -14,9 +14,9 @@ Syncthing: <https://github.com/syncthing/syncthing>
 ```bash
 docker run --name syncthing -d --restart=unless-stopped \
     -p 22000:22000/tcp -p 22000:22000/udp -p 21027:21027/udp \
-    -v /home/debian/data/syncthing:/var/syncthing \
+    -v /srv/docker/syncthing:/var/syncthing \
     --network frontend \
-    syncthing/syncthing:1.29
+    syncthing/syncthing:2.0.9
 ```
 
 port
