@@ -19,10 +19,24 @@ tags: linux
 # outside the container.
 docker run -it --name code-server -d --restart=always \
   --user "$(id -u)" \
-  -v "/home/user/data/www/code-server.test/.config:/home/coder/.config" \
-  -v "/home/user/data/www/code-server.test/data:/home/coder/data" \
-  -v "/home/user/data/www/code-server.test/.bash_aliases:/home/coder/.bash_aliases" \
-  -v "/home/user/data/project:/home/coder/project" \
+  -v "/srv/docker/code-server/.config:/home/coder/.config" \
+  -v "/srv/docker/code-server/.ssh:/home/coder/.ssh" \
+  -v "$HOME/project:/home/coder/project" \
   --net frontend \
-  codercom/code-server:4.92.2
+  codercom/code-server:4.104.1
+```
+
+进入 web 端
+
+安装常用工具
+
+```bash
+sudo apt update
+sudo apt install iputils-ping
+```
+
+设置 dns
+
+```bash
+sudo sh -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
 ```

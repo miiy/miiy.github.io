@@ -278,10 +278,10 @@ docker run --name pushprox-client -d --restart=always \
     --entrypoint /app/pushprox-client \
     --network backend \
     --add-host pushprox.example.com:39.100.100.100 \
-    -v /home/debian/data/pushprox-client/certs/:/app/certs/ \
+    -v /srv/docker/pushprox-client/certs/:/app/certs/ \
     prometheuscommunity/pushprox:v0.2.0 \
-    --fqdn=node-exporter
-    --proxy-url=http://pushprox.example.com/ \
+    --fqdn=node-exporter \
+    --proxy-url=https://pushprox.example.com/ \
     --tls.cacert=/app/certs/ca.crt \
     --tls.cert=/app/certs/client.crt \
     --tls.key=/app/certs/client.key
