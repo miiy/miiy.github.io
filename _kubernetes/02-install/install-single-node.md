@@ -3,13 +3,15 @@ layout: post
 title: "使用 kubeadm 安装 kubernetes 单节点学习环境"
 ---
 
-版本：v1.33.0
+版本：v1.35.0
 
 参考安装文档：
 
 <https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/install-kubeadm/>
 
 ## 基础设置
+
+重要：虚拟机首先设置固定ip
 
 ```bash
 # 设置 hostname
@@ -65,15 +67,16 @@ sudo vi /etc/containerd/config.toml
 
 设置镜像源
 
+https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/#containerd
+
 ```conf
-[plugins."io.containerd.grpc.v1.cri"]
-    sandbox_image = "registry.aliyuncs.com/google_containers/pause:3.8"
+[plugins.'io.containerd.cri.v1.images'.pinned_images]
+  sandbox = "registry.aliyuncs.com/google_containers/pause:3.8"
 
-[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
-    SystemdCgroup = true
 
-[plugins."io.containerd.grpc.v1.cri".registry]
-   config_path = "/etc/containerd/certs.d"
+[plugins.'io.containerd.cri.v1.runtime'.containerd.runtimes.runc.options]
+  SystemdCgroup = true
+
 ```
 
 ```bash
@@ -140,11 +143,11 @@ sudo sysctl net.ipv4.ip_forward
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
 
-# curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.33/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-curl -fsSL https://mirrors.aliyun.com/kubernetes-new/core/stable/v1.33/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+# curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.35/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+curl -fsSL https://mirrors.aliyun.com/kubernetes-new/core/stable/v1.35/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
-# echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.33/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://mirrors.aliyun.com/kubernetes-new/core/stable/v1.33/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+# echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.35/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://mirrors.aliyun.com/kubernetes-new/core/stable/v1.35/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
@@ -157,7 +160,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 sudo kubeadm init \
 --control-plane-endpoint=k8s-master \
 --image-repository registry.aliyuncs.com/google_containers \
---kubernetes-version v1.33.0 \
+--kubernetes-version v1.35.0 \
 --pod-network-cidr=192.168.0.0/16
 ```
 
@@ -178,7 +181,7 @@ sudo kubeadm init \
 如果执行出现错误，运行 sudo kubeadm reset -f 后，再次执行
 
 ```bash
-$ kubeadm init --control-plane-endpoint=k8s-master --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.33.0 --pod-network-cidr=192.168.0.0/16 --v=9
+$ kubeadm init --control-plane-endpoint=k8s-master --image-repository registry.aliyuncs.com/google_containers --kubernetes-version v1.35.0 --pod-network-cidr=192.168.0.0/16 --v=9
 
 ...
 
@@ -224,6 +227,9 @@ source ~/.bashrc
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+vi ~/.bashrc
+export KUBECONFIG=$HOME/.kube/config
 ```
 
 ## 安装 CNI 网络插件

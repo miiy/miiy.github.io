@@ -11,16 +11,21 @@ tags: linux
 
 https://www.jenkins.io/doc/book/installing/docker/
 
+https://github.com/jenkinsci/docker/blob/master/README.md
+
 ```bash
 sudo docker run -u root --name jenkins -d \
+    --restart on-failure \
+    -v /srv/docker/jenkins/jenkins_home:/var/jenkins_home \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    jenkins/jenkins:2.542
+```
+
+```
     --add-host gitlab.k8s:10.0.2.20 \
     --add-host harbor.example.com:10.0.2.20 \
-    --restart always \
     -p 8082:8080 -p 50000:50000 \
-    -v /data/jenkins/jenkins_home:/var/jenkins_home \
     -v /usr/bin/docker:/usr/bin/docker \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    jenkins/jenkins
 ```
 
 ## 安装 jenkins 插件

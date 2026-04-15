@@ -15,8 +15,8 @@ Calico quickstart guide: <https://projectcalico.docs.tigera.io/getting-started/k
 下载 tigera-operator.yaml, custom-resources.yaml
 
 ```bash
-# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/tigera-operator.yaml
-# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/custom-resources.yaml
+# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.4/manifests/tigera-operator.yaml
+# kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.4/manifests/custom-resources.yaml
 
 kubectl create -f tigera-operator.yaml
 kubectl create -f custom-resources.yaml

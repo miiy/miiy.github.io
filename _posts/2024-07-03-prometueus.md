@@ -16,18 +16,19 @@ monitoring
   grafana: :3000
   prometheus: 9090
   pushgateway: 0.0.0.0:9091
+  pushprox-proxy: :8080 pushprox.example.com
   node-exporter: :9100
+  smartctl-exporter: :9633
   alertmanager: :9093
 ```
 
 内网服务器
 
 ```
-frontend
-
-backend
-  node-exporer: :9100
-  node-exporter-pusher:
+host
+  node-exporer: 127.0.0.1:9100
+  smartctl-exporter: 127.0.0.1:9633
+  pushprox-client:
 ```
 
 ## prometueus
@@ -103,6 +104,10 @@ scrape_configs:
   - job_name: node
     static_configs:
       - targets: ['node-exporter:9100']
+  - job_name: node-client2
+    proxy_url: http://pushprox-proxy:8080/
+    static_configs:
+      - targets: ['x-client:9100', 'x-client:9633']  # Presuming the FQDN of the client is "client".
   - job_name: "pushgateway"
     scheme: https
     basic_auth:
@@ -190,9 +195,28 @@ docker run -d --name node-exporter --restart=always \
     -v "/proc:/host/proc:ro" \
     -v "/sys:/host/sys:ro" \
     -v "/:/rootfs:ro" \
+    -p 127.0.0.1:9100:9100 \
     --net monitoring \
     prom/node-exporter:v1.9.0
 ```
+
+## smartctl exporter
+
+```bash
+docker run -d \
+  --name=smartctl-exporter --restart=always \
+  --privileged \
+  --user=root \
+  -v /dev:/dev:ro \
+  -p 127.0.0.1:9633:9633 \
+  --network monitoring \
+  prometheuscommunity/smartctl-exporter:v0.14.0 \
+  --smartctl.interval=5m \
+  --smartctl.device=/dev/nvme0 \
+  --smartctl.device=/dev/sda \
+  --smartctl.device="/dev/sdb;sat"
+```
+
 
 ## push-gateway
 
@@ -274,30 +298,19 @@ curl {pushprox-proxy}:8080/metrics
 client
 
 ```bash
-docker run --name pushprox-client -d --restart=always \
+
+sudo docker run --name pushprox-client -d --restart=always \
     --entrypoint /app/pushprox-client \
-    --network backend \
+    --network host \
     --add-host pushprox.example.com:39.100.100.100 \
+    --add-host dell-client=127.0.0.1 \
     -v /srv/docker/pushprox-client/certs/:/app/certs/ \
     prometheuscommunity/pushprox:v0.2.0 \
-    --fqdn=node-exporter \
+    --fqdn=dell-client \
     --proxy-url=https://pushprox.example.com/ \
     --tls.cacert=/app/certs/ca.crt \
     --tls.cert=/app/certs/client.crt \
     --tls.key=/app/certs/client.key
-```
-
-## node-exporter-pusher
-
-推荐使用 PushProx 抓取
-
-将内网的 node-exporter 发送到 pushgateway
-
-```bash
-docker run --name node-exporter-pusher -d --restart=always \
-    -v /home/debian/data/node-exporter-pusher/.env:/root/.env \
-    --network backend \
-    node-exporter-pusher
 ```
 
 ## alertmanager
@@ -308,6 +321,7 @@ docker run --name alertmanager -d --restart=always \
     -v /data/alertmanager/config:/alertmanager/config \
     prom/alertmanager:v0.27.0 --config.file=/etc/alertmanager/alertmanager.yml
 ```
+
 
 ## References
 

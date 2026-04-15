@@ -22,8 +22,9 @@ docker run -it --name code-server -d --restart=always \
   -v "/srv/docker/code-server/.config:/home/coder/.config" \
   -v "/srv/docker/code-server/.ssh:/home/coder/.ssh" \
   -v "$HOME/project:/home/coder/project" \
+  -v "/srv/docker/code-server/workspace:/home/coder/workspace" \
   --net frontend \
-  codercom/code-server:4.104.1
+  codercom/code-server:4.114.1
 ```
 
 进入 web 端

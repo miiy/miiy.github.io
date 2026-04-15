@@ -9,10 +9,10 @@ title: "安装 kubernetes dashboard"
 
 ## Install
 
-# 下载 kubernetes-dashboard-7.13.0.tgz 手动安装
+# 下载 kubernetes-dashboard-7.14.0.tgz 手动安装
 
 ```bash
-helm upgrade --install kubernetes-dashboard ./kubernetes-dashboard-7.13.0.tgz --create-namespace --namespace kubernetes-dashboard
+helm upgrade --install kubernetes-dashboard ./kubernetes-dashboard-7.14.0.tgz --create-namespace --namespace kubernetes-dashboard
 ```
 
 ```text
@@ -39,6 +39,15 @@ NOTE: In case port-forward command does not work, make sure that kong service na
 
 Dashboard will be available at:
   https://localhost:8443
+```
+
+手动拉去取镜像的方法：
+
+```bash
+kubectl get po -A
+kubectl describe pod -n kubernetes-dashboard kubernetes-dashboard-auth-57d7b7bbf5-vhbbh
+sudo ctr -n k8s.io images pull docker.m.daocloud.io/kubernetesui/dashboard-auth:1.4.0
+sudo ctr -n k8s.io images tag   docker.m.daocloud.io/kubernetesui/dashboard-auth:1.4.0   docker.io/kubernetesui/dashboard-auth:1.4.0
 ```
 
 ## Access

@@ -35,7 +35,7 @@ GITLAB_HOME=/srv/docker/gitlab
 sudo docker run --detach \
   --hostname gitlab.mydomain.com \
   --env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.mydomain.com'" \
-  --publish 127.0.0.1:2022:22 \
+  --publish 0.0.0.0:2022:22 \
   --name gitlab \
   --restart always \
   --volume $GITLAB_HOME/config:/etc/gitlab \
@@ -43,7 +43,7 @@ sudo docker run --detach \
   --volume $GITLAB_HOME/data:/var/opt/gitlab \
   --network frontend \
   --shm-size 256m \
-  gitlab/gitlab-ce:18.4.0-ce.0
+  gitlab/gitlab-ce:18.8.0-ce.0
 ```
 
 ## 启用 https
@@ -74,7 +74,6 @@ vi /srv/docker/gitlab/config/gitlab.rb
 
 ```rb
 external_url 'https://gitlab.example.com'
-letsencrypt['enable'] = false
 nginx['redirect_http_to_https'] = true
 gitlab_rails['gitlab_shell_ssh_port'] = 2022
 ```
@@ -83,9 +82,20 @@ gitlab_rails['gitlab_shell_ssh_port'] = 2022
 
 ```rb
 # 禁用 Puma 集群模式，减少内存占用
-puma['worker_processes'] = 0
+puma['worker_processes'] = 1
+puma['min_threads'] = 1
+puma['max_threads'] = 2
+puma['per_worker_max_memory_mb'] = 256
+
 # 设置 Sidekiq 进程数量
-sidekiq['concurrency'] = 10
+sidekiq['concurrency'] = 5
+
+gitlab_ci['enable'] = false
+
+# https://docs.gitlab.com/administration/monitoring/prometheus/
+prometheus_monitoring['enable'] = false
+sidekiq['metrics_enabled'] = false
+puma['exporter_enabled'] = false
 ```
 
 ```bash
@@ -97,3 +107,7 @@ docker restart gitlab
 禁用注册
 
 /help, /explore 暴漏项目，建议所有项目私有
+
+## Upgrade
+
+https://docs.gitlab.com/update/upgrade_paths/
