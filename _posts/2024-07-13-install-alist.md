@@ -17,7 +17,7 @@ docker run -d --name="alist" --restart=unless-stopped \
   -v /srv/docker/alist/public:/media/Public \
   -e PUID=0 -e PGID=0 -e UMASK=022 \
   --network frontend \
-  xhofe/alist:v3.44.0-ffmpeg
+  xhofe/alist:v3.59.0-ffmpeg
 ```
 
 设置密码

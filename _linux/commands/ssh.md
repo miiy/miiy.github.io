@@ -71,11 +71,34 @@ root@debian:~# systemctl restart sshd
 
 ## Examples
 
+### port forward
+
 ```bash
-ssh debian@127.0.0.1 -p6000 -L 3399:127.0.0.1:3389
+ssh debian@127.0.0.1 -p6000 -L 127.0.0.1:3399:127.0.0.1:3389
 ssh -p2200 -R 9200:127.0.0.1:9200 root@192.168.0.1
 ssh root@192.168.0.1 "cd /data/deploy/; ./start.sh"
 ```
 
+### ssh tunnel remote mode
 
+公网服务器
 
+```text
+root@x.x.x.x
+```
+
+内网机器
+
+```bash
+ssh -N -R 127.0.0.1:6000:127.0.0.1:22 root@x.x.x.x -p 22
+```
+
+本地机器
+
+```bash
+ssh -A -J root@x.x.x.x mac@127.0.0.1 -p 6000
+
+scp -o ProxyJump=root@x.x.x.x -P 6000 local.txt mac@127.0.0.1:~/Downloads
+
+rsync -avz --progress -e "ssh -J root@x.x.x.x -p 6000" local.txt mac@127.0.0.1:~/test/
+```
