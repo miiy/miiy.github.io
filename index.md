@@ -10,13 +10,7 @@ title: Home
 
 <div class="nav-home">
   <section class="nav-home__hero">
-    {% if nav.eyebrow %}
-      <p class="nav-home__eyebrow">{{ nav.eyebrow }}</p>
-    {% endif %}
-    <h1 class="nav-home__title">{{ nav.title | default: page.title }}</h1>
-    {% if nav.description %}
-      <p class="nav-home__description">{{ nav.description }}</p>
-    {% endif %}
+    <h1 class="nav-home__title">Quick Access</h1>
   </section>
 
   {% for group in nav.groups %}
