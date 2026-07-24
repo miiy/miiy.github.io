@@ -17,23 +17,31 @@ tags: linux
 # Your $HOME/.config is mounted at $HOME/.config within the container to ensure you can
 # easily access/modify your code-server config in $HOME/.config/code-server/config.json
 # outside the container.
-docker run -it --name code-server -d --restart=always \
+docker run --privileged -it --name code-server -d --restart=always \
   --user "$(id -u)" \
   -v "/srv/docker/code-server/.config:/home/coder/.config" \
   -v "/srv/docker/code-server/.ssh:/home/coder/.ssh" \
   -v "$HOME/project:/home/coder/project" \
   -v "/srv/docker/code-server/workspace:/home/coder/workspace" \
   --net frontend \
-  codercom/code-server:4.114.1
+  codercom/code-server:4.127.0
 ```
 
 进入 web 端
 
-安装常用工具
+init env
 
 ```bash
-sudo apt update
-sudo apt install iputils-ping
+sudo sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources \
+&& sudo sed -i 's/security.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/debian.sources \
+&& cat /etc/apt/sources.list.d/debian.sources \
+&& sudo apt update \
+&& sudo apt install -y vim zip iputils-ping python3 pip python3-venv jq chromium \
+&& curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh \
+&& echo 'export PATH="$HOME/workspace/dev/node/bin:$PATH"' >> ~/.bashrc \
+&& echo 'export PATH="$HOME/workspace/dev/go/bin:$PATH"' >> ~/.bashrc \
+&& source ~/.bashrc \
+&& npm install -g @openai/codex
 ```
 
 设置 dns

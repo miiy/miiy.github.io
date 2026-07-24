@@ -1,40 +1,63 @@
 
 groups:
+  - title: Linux
+    description: Linux
+    items:
+    - name: Linux命令搜索引擎
+      url: https://wangchujiang.com/linux-command/
+      icon: https://wangchujiang.com/linux-command/img/favicon.ico
+
   - title: Rust
     description: 语言基础、异步生态和社区资料。
     items:
+      - name: Rust Programming Language
+        url: https://rust-lang.org/
+        desc: Rust官方文网站
+        icon: https://rust-lang.org/favicon.ico
       - name: Rust 官方文档中文教程
-        url: https://rustwiki.org
-        desc: Rust 中文资料入口
+        url: https://rustwiki.org/
+        desc: Rust 官方文档中文教程
         icon: https://rustwiki.org/favicon.ico
+      - name: Rust 程序设计语言 简体中文版
+        url: https://kaisery.github.io/trpl-zh-cn/
+        icon:  https://kaisery.github.io/trpl-zh-cn/favicon.ico
       - name: Tokio Tutorial
-        url: https://tokio.rs/tokio/tutorial
-        desc: Tokio 异步编程教程
+        url: https://tokio.rs/tokio/tutorial/
+        desc: Tokio 官方文档
         icon: https://tokio.rs/favicon.ico
-      - name: Tokio 异步编程
-        url: https://github.com/sunface/tokio-course
-        desc: Sunface 的 Tokio 课程仓库
+      - name: tokio-course
+        url: https://github.com/sunface/tokio-course/
+        desc: Tokio 教程 中文版
         icon: https://github.com/favicon.ico
 
   - title: Go
-    description: 语言文档、包索引和社区框架。
+    description: 语言文档、社区框架。
     items:
-      - name: Go 官方文档
-        url: https://go.dev/doc/
-        desc: 官方文档与语言说明
-        icon: https://go.dev/favicon.ico
-      - name: pkg.go.dev
-        url: https://pkg.go.dev
-        desc: Go 包文档检索
-        icon: https://pkg.go.dev/favicon.ico
+      - name: The Go Programming Language
+        url: https://golang.google.cn/
+        desc: Go 中文官方网站
+        icon: https://golang.google.cn/favicon.ico
+      - name: Go 语言圣经
+        url: https://golang-china.github.io/gopl-zh/index.html
+        desc: 《The Go Programming Language》中文版本
+        icon: https://golang-china.github.io/favicon.ico
       - name: Go by Example
-        url: https://gobyexample.com
-        desc: 常见语法与场景示例
+        url: https://gobyexample.com/
         icon: https://gobyexample.com/favicon.ico
+      - name: Go by Example 中文版
+        url: https://gobyexample-cn.github.io/
+        icon: https://gobyexample-cn.github.io/favicon.ico
+      - name: Go 语言设计与实现
+        url: https://draveness.me/golang/
+        icon: https://draveness.me/golang/favicon.ico
 
   - title: Kubernetes
     description: 集群、容器与发布相关文档。
     items:
+      - name: Docker Docs
+        url: https://docs.docker.com/
+        desc: Docker 官方文档
+        icon: https://www.docker.com/favicon.ico
       - name: Kubernetes Docs
         url: https://kubernetes.io/docs/
         desc: Kubernetes 官方文档
@@ -43,20 +66,47 @@ groups:
         url: https://helm.sh/docs/
         desc: Helm 官方文档
         icon: https://helm.sh/img/helm.svg
-      - name: Docker Docs
-        url: https://docs.docker.com/
-        desc: Docker 官方文档
-        icon: https://www.docker.com/favicon.ico
 
   - title: Java
     description: 入门路线、标准文档和常用生态。
     items:
-      - name: JavaGuide
-        url: https://javaguide.cn
-        desc: Java 学习路线与面试资料
-        icon: https://javaguide.cn/favicon.ico
-      - name: Oracle Java Docs
+      - name: Java Documentation
         url: https://docs.oracle.com/en/java/
         desc: Java 标准库与版本文档
         icon: https://www.oracle.com/favicon.ico
+      - name: JavaGuide
+        url: https://javaguide.cn
+        desc: Java 面试 & 后端通用面试指南
+        icon: https://javaguide.cn/favicon.ico
+      - name: CS-Notes 面试笔记
+        url: https://cyc2018.xyz/
+        desc: 计算机基础、Java、数据库与系统设计面试笔记
+        icon: https://cyc2018.xyz/favicon.ico
 
+  - title: Claude Code
+    description: Claude Code 学习资料与源码分析。
+    items:
+      - name: Learn Claude Code
+        url: https://github.com/shareAI-lab/learn-claude-code/
+        desc: 真正的 Agent Harness 工程
+        icon: https://github.com/favicon.ico
+      - name: Claude Code Analysis
+        url: https://github.com/liuup/claude-code-analysis
+        desc: Claude code 源码分析
+        icon: https://github.com/favicon.ico
+
+  - title: Frontend
+    description: 前端框架与文档。
+    items:
+      - name: React
+        url: https://react.dev/
+        desc: React 官方文档
+        icon: https://react.dev/favicon.ico
+      - name: shadcn/ui
+        url: https://ui.shadcn.com/
+        desc: shadcn/ui 官方组件文档
+        icon: https://ui.shadcn.com/favicon.ico
+      - name: Tauri
+        url: https://tauri.app/zh-cn/
+        desc: Tauri 官方中文文档
+        icon: https://tauri.app/favicon.ico

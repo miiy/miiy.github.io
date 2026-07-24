@@ -52,18 +52,16 @@ sudo docker run --detach \
 mkdir -p /srv/docker/gitlab/config/ssl
 cd /srv/docker/gitlab/config/ssl
 
-openssl genrsa -out gitlab.example.com.key 4096
-
-openssl req -sha512 -new \
--subj "/C=CN/ST=Beijing/L=Beijing/O=exampleOrg/CN=gitlab.example.com" \
--key gitlab.example.com.key \
--out gitlab.example.com.csr
-
-openssl x509 -req  -days 3650 \
--in gitlab.example.com.csr \
--signkey gitlab.example.com.key \
--out gitlab.example.com.crt
-
+openssl req \
+  -x509 \
+  -newkey rsa:4096 \
+  -sha512 \
+  -nodes \
+  -days 3650 \
+  -keyout gitlab.example.com.key \
+  -out gitlab.example.com.crt \
+  -subj "/C=CN/ST=Beijing/L=Beijing/O=exampleOrg/CN=gitlab.example.com" \
+  -addext "subjectAltName=DNS:gitlab.example.com"
 ```
 
 修改配置文件
