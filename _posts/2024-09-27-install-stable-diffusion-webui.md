@@ -2,6 +2,7 @@
 layout: post
 title: "安装 Stable Diffusion web UI"
 date: 2024-09-27
+tags: AI
 ---
 
 ## Install

@@ -2,6 +2,7 @@
 layout: post
 title: "安装 flash-attention"
 date: 2025-03-11
+tags: AI
 ---
 
 首先确保 pytorch 已经安装好

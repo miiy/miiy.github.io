@@ -2,6 +2,7 @@
 layout: post
 title: "MacOS 系统下制作U盘镜像"
 date: 2025-03-12
+tags: other
 ---
 
 ```bash

@@ -2,6 +2,7 @@
 layout: post
 title: "安装 ComfyUI"
 date: 2024-09-29
+tags: AI
 ---
 
 ## Install

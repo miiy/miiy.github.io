@@ -2,6 +2,7 @@
 layout: post
 title: "yolov5 快速入门"
 date: 2024-08-15
+tags: AI
 ---
 
 <https://github.com/ultralytics/yolov5>

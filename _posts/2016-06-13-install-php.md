@@ -2,7 +2,7 @@
 layout: post
 title: "install php"
 date: 2016-06-13
-tags: php
+tags: linux
 ---
 
 # Install

@@ -2,7 +2,7 @@
 layout: post
 title: "macos 通过 launched 自启动服务"
 date: 2026-07-24
-tags: linux
+tags: other
 ---
 
 macOS 用 launchd 做服务的开机自启动，相当于 Linux 的 systemd。

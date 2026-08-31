@@ -2,6 +2,7 @@
 layout: post
 title: "mysql 数据库字段加密"
 date: 2024-01-24
+tags: linux
 ---
 
 ```sql

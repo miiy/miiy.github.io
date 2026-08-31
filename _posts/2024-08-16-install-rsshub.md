@@ -2,6 +2,7 @@
 layout: post
 title: "安装 RSSHub"
 date: 2024-08-16
+tags: linux
 ---
 
 ## Run

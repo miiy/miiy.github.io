@@ -2,6 +2,7 @@
 layout: post
 title: "安装 GLM-4"
 date: 2024-10-15
+tags: AI
 ---
 
 ## Install

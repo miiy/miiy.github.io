@@ -2,6 +2,7 @@
 layout: post
 title: "install milvus"
 date: 2024-11-05
+tags: AI
 ---
 
 ## Install Milvus in Docker

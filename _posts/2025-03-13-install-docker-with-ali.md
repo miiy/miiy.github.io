@@ -2,6 +2,7 @@
 layout: post
 title: "使用阿里源安装 docker"
 date: 2025-03-13
+tags: linux
 ---
 
 <https://docs.docker.com/engine/install/debian/>

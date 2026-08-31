@@ -2,7 +2,7 @@
 layout: post
 title: "查看 FPM 状态页"
 date: 2020-06-08
-tags: php
+tags: other
 ---
 
 # 查看 FPM 状态页

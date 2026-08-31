@@ -2,6 +2,7 @@
 layout: post
 title: "DTLN 降噪"
 date: 2025-03-25
+tags: AI
 ---
 
 ## Install

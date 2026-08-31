@@ -2,6 +2,7 @@
 layout: post
 title: "安装 HunyuanVideo"
 date: 2024-12-05
+tags: AI
 ---
 
 <https://github.com/Tencent/HunyuanV>

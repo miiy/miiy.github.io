@@ -2,6 +2,7 @@
 layout: post
 title: "install golang"
 date: 2024-07-10
+tags: linux
 ---
 
 <https://golang.google.cn/doc/install>
