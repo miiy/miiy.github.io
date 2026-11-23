@@ -247,6 +247,29 @@ sudo docker run \
   ghcr.io/google/cadvisor:0.60.5
 ```
 
+### process-exporter
+
+<https://github.com/ncabatoff/process-exporter>
+
+```bash
+# process info
+mkdir -p /data/process-exporter/config
+cat > /data/process-exporter/config/config.yml <<'EOF'
+process_names:
+  - name: "{{.Comm}}"
+    cmdline:
+      - '.+'
+EOF
+
+docker run -d --name process-exporter \
+    --restart unless-stopped \
+    -p 127.0.0.1:9256:9256 \
+    --privileged \
+    -v /proc:/host/proc \
+    -v /data/process-exporter/config:/config \
+    ncabatoff/process-exporter:v0.8.7 --procfs /host/proc -config.path /config/config.yml
+```
+
 ## push-gateway
 
 pushgateway: <https://github.com/prometheus/pushgateway>

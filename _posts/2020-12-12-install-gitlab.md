@@ -34,17 +34,18 @@ Memory:
 GITLAB_HOME=/srv/docker/gitlab
 sudo docker run --detach \
   --hostname gitlab.mydomain.com \
-  --env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.mydomain.com'" \
+  --env GITLAB_OMNIBUS_CONFIG="external_url 'https://gitlab.mydomain.com'" \
   --publish 0.0.0.0:2022:22 \
   --name gitlab \
   --restart always \
   --volume $GITLAB_HOME/config:/etc/gitlab \
-  --volume $GITLAB_HOME/logs:/var/log/gitlab \
   --volume $GITLAB_HOME/data:/var/opt/gitlab \
   --network frontend \
   --shm-size 256m \
-  gitlab/gitlab-ce:18.8.0-ce.0
+  gitlab/gitlab-ce:19.5.0-ce.0
 ```
+
+--volume $GITLAB_HOME/logs:/var/log/gitlab \
 
 ## 启用 https
 
@@ -98,6 +99,12 @@ puma['exporter_enabled'] = false
 
 ```bash
 docker restart gitlab
+```
+
+## 检查服务运行状态
+
+```bash
+docker exec -it gitlab gitlab-ctl status
 ```
 
 ## Security
