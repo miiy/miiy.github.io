@@ -44,8 +44,13 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
+exclude:
+  - Dockerfile
+  - entrypoint.sh
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
 #   - Gemfile
@@ -103,6 +108,13 @@ minima:
   #   the `path` property (as represented via Liquid) of the pages in the order they
   #   should be rendered.
   nav_pages:
+    - index.html
+    - _kubernetes/index.md
+    - _linux/index.md
+    - tags.md
+    - archives.md
+    - links.md
+    - search.md
     - about.md
 
   # Set to `true` to show excerpts on the homepage.

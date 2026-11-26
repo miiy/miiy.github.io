@@ -5,7 +5,7 @@ date: 2016-06-13
 tags: linux
 ---
 
-# Install
+## Install
 
 ```bash
 groupadd www

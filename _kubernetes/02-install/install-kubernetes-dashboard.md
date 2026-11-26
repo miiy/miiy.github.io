@@ -9,7 +9,7 @@ title: "安装 kubernetes dashboard"
 
 ## Install
 
-# 下载 kubernetes-dashboard-7.14.0.tgz 手动安装
+## 下载 kubernetes-dashboard-7.14.0.tgz 手动安装
 
 ```bash
 helm upgrade --install kubernetes-dashboard ./kubernetes-dashboard-7.14.0.tgz --create-namespace --namespace kubernetes-dashboard

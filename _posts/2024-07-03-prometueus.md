@@ -251,6 +251,7 @@ sudo docker run \
 
 <https://github.com/ncabatoff/process-exporter>
 
+{% raw %}
 ```bash
 # process info
 mkdir -p /data/process-exporter/config
@@ -269,6 +270,7 @@ docker run -d --name process-exporter \
     -v /data/process-exporter/config:/config \
     ncabatoff/process-exporter:v0.8.7 --procfs /host/proc -config.path /config/config.yml
 ```
+{% endraw %}
 
 ## push-gateway
 

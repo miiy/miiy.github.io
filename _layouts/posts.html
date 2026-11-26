@@ -3,9 +3,11 @@ layout: base
 ---
 
 <div class="posts-page">
+  {%- comment -%}
   {%- if page.title -%}
   <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
+  {%- endcomment -%}
 
   {{ content }}
 
@@ -37,21 +39,31 @@ layout: base
     </ul>
   {%- endif -%}
 
-  <!-- Pagination links -->
+  <!-- Pagination: sliding window of 6 pages, no ellipsis -->
   {% if paginator.total_pages > 1 %}
+  {% assign total = paginator.total_pages %}
+  {% assign cur = paginator.page %}
+  {% assign span = 6 %}
+  {% assign maxstart = total | minus: span | plus: 1 %}
+  {% assign start = cur | minus: 2 %}
+  {% if start > maxstart %}{% assign start = maxstart %}{% endif %}
+  {% if start < 1 %}{% assign start = 1 %}{% endif %}
+  {% assign finish = start | plus: span | minus: 1 %}
+  {% if finish > total %}{% assign finish = total %}{% endif %}
   <div class="pagination">
     {% if paginator.previous_page %}
       <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
     {% else %}
       <span>&laquo; Prev</span>
     {% endif %}
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <em>{{ page }}</em>
-      {% elsif page == 1 %}
-        <a href="{{ site.paginate_path | relative_url | remove: ':num/' }}">{{ page }}</a>
+
+    {% for p in (start..finish) %}
+      {% if p == cur %}
+        <em>{{ p }}</em>
+      {% elsif p == 1 %}
+        <a href="{{ '/' | relative_url }}">1</a>
       {% else %}
-        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+        <a href="{{ site.paginate_path | relative_url | replace: ':num', p }}">{{ p }}</a>
       {% endif %}
     {% endfor %}
 

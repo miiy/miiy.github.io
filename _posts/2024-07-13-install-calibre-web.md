@@ -9,7 +9,7 @@ tags: linux
 
 <https://github.com/linuxserver/docker-calibre-web>
 
-# Install
+## Install
 
 ```bash
 docker run -d \

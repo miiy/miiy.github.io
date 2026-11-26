@@ -1,0 +1,705 @@
+groups:
+- title: Linux
+  description: Linux
+  items:
+  - name: Linux命令搜索引擎
+    url: https://wangchujiang.com/linux-command/
+    icon: https://wangchujiang.com/linux-command/img/favicon.ico
+  - name: 跟我一起写 Makefile
+    url: https://github.com/seisman/how-to-write-makefile
+    desc: Makefile 中文教程
+    icon: https://github.com/favicon.ico
+  - name: manpages-zh
+    url: https://manpages.debian.org/unstable/manpages-zh/index.html
+    icon: https://manpages.debian.org/favicon.ico
+  - name: LinuxServer.io
+    url: https://docs.linuxserver.io/
+    icon: https://docs.linuxserver.io/favicon.ico
+  - name: GNU Netcat
+    url: https://netcat.sourceforge.net/
+    icon: https://netcat.sourceforge.net/favicon.ico
+  - name: FHS 3.0
+    url: https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html
+    icon: https://www.linuxfoundation.org/favicon.ico
+  - name: Vim 速查表
+    url: https://github.com/skywind3000/awesome-cheatsheets/blob/master/editors/vim.txt
+    desc: 常用 Vim 命令速查
+    icon: https://github.com/favicon.ico
+- title: Rust
+  description: 语言基础、异步生态和社区资料。
+  items:
+  - name: Rust Programming Language
+    url: https://rust-lang.org/
+    desc: Rust官方文网站
+    icon: https://rust-lang.org/favicon.ico
+  - name: Rust 文档网
+    url: https://rustwiki.org/
+    desc: Rust 官方文档中文教程
+    icon: https://rustwiki.org/favicon.ico
+  - name: Rust 程序设计语言 中文版
+    url: https://kaisery.github.io/trpl-zh-cn/
+    icon: https://kaisery.github.io/trpl-zh-cn/favicon.ico
+  - name: Tutorial
+    url: https://tokio.rs/tokio/tutorial/
+    desc: Tokio 官方文档
+    icon: https://tokio.rs/favicon.ico
+  - name: tokio-course
+    url: https://github.com/sunface/tokio-course/
+    desc: Tokio 教程 中文版
+    icon: https://github.com/favicon.ico
+- title: Go
+  description: 语言文档、社区框架。
+  items:
+  - name: The Go Programming Language
+    url: https://golang.google.cn/
+    desc: Go 中文官方网站
+    icon: https://golang.google.cn/favicon.ico
+  - name: Go语言圣经 - Go语言圣经
+    url: https://golang-china.github.io/gopl-zh/index.html
+    desc: 《The Go Programming Language》中文版本
+    icon: https://golang-china.github.io/favicon.ico
+  - name: Go by Example
+    url: https://gobyexample.com/
+    icon: https://gobyexample.com/favicon.ico
+  - name: Go by Example 中文版
+    url: https://gobyexample-cn.github.io/
+    icon: https://gobyexample-cn.github.io/favicon.ico
+  - name: Go 语言设计与实现
+    url: https://draven.co/golang/
+    icon: https://draven.co/favicon.ico
+  - name: The Way to Go 中文版
+    url: https://github.com/unknwon/the-way-to-go_ZH_CN
+    icon: https://github.com/favicon.ico
+  - name: Go语言高级编程
+    url: https://github.com/chai2010/advanced-go-programming-book
+    icon: https://github.com/favicon.ico
+  - name: Go 项目布局规范
+    url: https://github.com/golang-standards/project-layout
+    icon: https://github.com/favicon.ico
+  - name: Go Web 编程
+    url: https://github.com/astaxie/build-web-application-with-golang
+    icon: https://github.com/favicon.ico
+  - name: Go语言标准库文档中文版
+    url: https://studygolang.com/pkgdoc
+    icon: https://studygolang.com/favicon.ico
+  - name: gopl-zh 源码
+    url: https://github.com/golang-china/gopl-zh
+    icon: https://github.com/favicon.ico
+  - name: 实效Go编程 - Go 编程语言
+    url: https://go-zh.org/doc/effective_go.html
+    icon: https://go-zh.org/favicon.ico
+  - name: Go Modules
+    url: https://github.com/golang/go/wiki/Modules
+    icon: https://github.com/favicon.ico
+  - name: Protocol Buffers
+    url: https://protobuf.dev/
+    icon: https://developers.google.com/favicon.ico
+  - name: gRPC
+    url: https://grpc.io/
+    icon: https://grpc.io/favicon.ico
+  - name: General AIPs
+    url: https://google.aip.dev/general
+    icon: https://google.aip.dev/favicon.ico
+  - name: googleapis
+    url: https://github.com/googleapis/googleapis
+    icon: https://github.com/favicon.ico
+  - name: grpc-gateway
+    url: https://github.com/grpc-ecosystem/grpc-gateway
+    icon: https://github.com/favicon.ico
+  - name: Gin 文档
+    url: https://gin-gonic.com/zh-cn/docs/
+    icon: https://gin-gonic.com/favicon.ico
+  - name: GORM
+    url: https://gorm.io/zh_CN/
+    icon: https://gorm.io/favicon.ico
+  - name: Traefik
+    url: https://traefik.io/
+    icon: https://traefik.io/favicon.ico
+  - name: RegExr
+    url: https://regexr.com/
+    icon: https://regexr.com/favicon.ico
+  - name: regexp
+    url: https://studygolang.com/static/pkgdoc/pkg/regexp.htm
+    icon: https://studygolang.com/favicon.ico
+  - name: microservices-demo
+    url: https://github.com/GoogleCloudPlatform/microservices-demo
+    icon: https://github.com/favicon.ico
+  - name: Go语言101 -Go语言101
+    url: https://gfw.go101.org/article/101.html
+    desc: 通俗版 Go 白皮书
+    icon: https://gfw.go101.org/favicon.ico
+  - name: gRPC 官方文档中文版_V1.0
+    url: http://doc.oschina.net/grpc
+    desc: gRPC 官方文档中文版
+    icon: https://doc.oschina.net/favicon.ico
+  - name: Go 圣经笔记
+    url: https://github.com/qyuhen/book
+    desc: qyuhen 的 Go 学习笔记
+    icon: https://github.com/favicon.ico
+  - name: 码农桃花源
+    url: https://qcrao91.gitbook.io/go
+    desc: 码农桃花源
+    icon: https://qcrao91.gitbook.io/favicon.ico
+  - name: 前景 · Go语言中文文档
+    url: https://www.topgoer.com/
+    desc: Go 入门教程与进阶
+    icon: https://www.topgoer.com/favicon.ico
+  - name: Golang修养之路 · 语雀
+    url: https://www.yuque.com/aceld/golang
+    desc: aceld 的 Go 进阶笔记
+    icon: https://www.yuque.com/favicon.ico
+  - name: go-grpc-tutorial
+    url: https://github.com/jergoo/go-grpc-tutorial
+    desc: gRPC 入门教程（含示例代码）
+    icon: https://github.com/favicon.ico
+  - name: interview-questions
+    url: https://github.com/geektutu/interview-questions
+    desc: Go 面试题与解析
+    icon: https://github.com/favicon.ico
+  - name: Go 夜读
+    url: https://github.com/talkgo/night
+    desc: 每周 Go 源码阅读分享
+    icon: https://github.com/favicon.ico
+- title: Kubernetes
+  description: 集群、容器与发布相关文档。
+  items:
+  - name: Docker Docs
+    url: https://docs.docker.com/
+    desc: Docker 官方文档
+    icon: https://www.docker.com/favicon.ico
+  - name: Kubernetes 文档
+    url: https://kubernetes.io/docs/home/
+    desc: Kubernetes 官方文档
+    icon: https://kubernetes.io/icons/favicon-64.png
+  - name: Docs Home
+    url: https://helm.sh/docs/
+    icon: https://helm.sh/img/helm.svg
+  - name: Docker
+    url: https://www.docker.com/
+    icon: https://www.docker.com/favicon.ico
+  - name: Dockerfile 最佳实践
+    url: https://docs.docker.com/build/building/best-practices/
+    icon: https://docs.docker.com/favicon.ico
+  - name: Kubernetes
+    url: https://kubernetes.io/zh-cn/
+    icon: https://kubernetes.io/favicon.ico
+  - name: Kubernetes Handbook
+    url: https://jimmysong.io/zh/book/kubernetes-handbook/
+    icon: https://jimmysong.io/favicon.ico
+  - name: 序言 | Kubernetes指南
+    url: https://kubernetes.feisky.xyz/
+    icon: https://kubernetes.feisky.xyz/favicon.ico
+  - name: KubeSphere
+    url: https://kubesphere.io/
+    icon: https://kubesphere.io/favicon.ico
+  - name: K9s
+    url: https://k9scli.io/
+    icon: https://k9scli.io/favicon.ico
+  - name: Docker 从入门到实践
+    url: https://github.com/yeasy/docker_practice
+    desc: 中文 Docker 开源书
+    icon: https://github.com/favicon.ico
+  - name: Harbor
+    url: https://goharbor.io/
+    icon: https://goharbor.io/favicon.ico
+- title: Nginx
+  description: Nginx、OpenResty 与 Tengine 文档。
+  items:
+  - name: nginx
+    url: https://nginx.org/
+    icon: https://nginx.org/favicon.ico
+  - name: nginx 文档
+    url: https://nginx.org/en/docs/
+    icon: https://nginx.org/favicon.ico
+  - name: NGINX 文档
+    url: https://docs.nginx.com/
+    icon: https://www.nginx.com/favicon.ico
+  - name: OpenResty
+    url: https://openresty.org/en/
+    icon: https://openresty.org/favicon.ico
+  - name: agentzh 的 Nginx 教程（版本 2020.03.19）
+    url: https://openresty.org/download/agentzh-nginx-tutorials-zhcn.html
+    icon: https://openresty.org/favicon.ico
+  - name: Tengine
+    url: https://tengine.taobao.org/
+    icon: https://tengine.taobao.org/favicon.ico
+  - name: Tengine 文档
+    url: https://tengine.taobao.org/documentation_cn.html
+    icon: https://tengine.taobao.org/favicon.ico
+  - name: Nginx 开发从入门到精通
+    url: https://tengine.taobao.org/book/
+    icon: https://tengine.taobao.org/favicon.ico
+  - name: NGINXConfig
+    url: https://www.digitalocean.com/community/tools/nginx
+    icon: https://www.digitalocean.com/favicon.ico
+  - name: FRiCKLE/ngx_cache_purge
+    url: https://github.com/FRiCKLE/ngx_cache_purge
+    icon: https://github.com/favicon.ico
+  - name: yaoweibin/nginx_upstream_check_module
+    url: https://github.com/yaoweibin/nginx_upstream_check_module
+    icon: https://github.com/favicon.ico
+  - name: pintsized/lua-resty-http
+    url: https://github.com/ledgetech/lua-resty-http
+    icon: https://github.com/favicon.ico
+  - name: Orange
+    url: https://github.com/orlabs/orange
+    icon: https://github.com/favicon.ico
+    desc: OpenResty API 网关
+  - name: sumory/openresty-china
+    url: https://github.com/sumory/openresty-china
+    icon: https://github.com/favicon.ico
+  - name: openresty/lua-nginx-module
+    url: https://github.com/openresty/lua-nginx-module
+    icon: https://github.com/favicon.ico
+  - name: simpl/ngx_devel_kit
+    url: https://github.com/vision5/ngx_devel_kit
+    icon: https://github.com/favicon.ico
+  - name: Kong
+    url: https://github.com/Kong/kong
+    desc: 微服务 API 网关
+    icon: https://github.com/favicon.ico
+- title: Ops
+  description: 服务端组件、中间件与运维工具。
+  items:
+  - name: Keepalived
+    url: https://www.keepalived.org/
+    icon: https://www.keepalived.org/favicon.ico
+  - name: Ceph
+    url: https://ceph.io/en/
+    icon: https://ceph.io/favicon.ico
+  - name: Ceph Documentation
+    url: https://docs.ceph.com/en/latest/
+    icon: https://docs.ceph.com/favicon.ico
+  - name: curl CA 证书
+    url: https://curl.se/docs/caextract.html
+    icon: https://curl.haxx.se/favicon.ico
+  - name: RocketMQ · 官方网站
+    url: https://rocketmq.apache.org/
+    icon: https://rocketmq.apache.org/favicon.ico
+  - name: Supervisor
+    url: https://supervisord.org/
+    icon: https://supervisord.org/favicon.ico
+  - name: OpenStack
+    url: https://docs.openstack.org/zh_CN/
+    icon: https://docs.openstack.org/favicon.ico
+- title: Kafka
+  description: 消息队列文档、中文资料与监控。
+  items:
+  - name: Apache Kafka
+    url: https://kafka.apache.org/
+    desc: Kafka 官方文档
+    icon: https://kafka.apache.org/favicon.ico
+  - name: Kafka 中文文档
+    url: https://kafka.apachecn.org/
+    desc: Apache Kafka 中文文档
+    icon: https://kafka.apachecn.org/assets/images/favicon.png
+  - name: EFAK
+    url: https://www.kafka-eagle.org/
+    desc: Kafka 监控与管理平台
+    icon: https://www.kafka-eagle.org/favicon.ico
+  - name: Kafka 教程
+    url: https://www.orchome.com/kafka/index
+    desc: Kafka 入门到进阶中文教程
+    icon: https://www.orchome.com/favicon.ico
+- title: Elasticsearch
+  description: 搜索引擎文档与中文指南。
+  items:
+  - name: 'Elasticsearch: 权威指南'
+    url: https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html
+    icon: https://www.elastic.co/favicon.ico
+  - name: Elastic 官网
+    url: https://www.elastic.co/
+    icon: https://www.elastic.co/favicon.ico
+  - name: medcl/elasticsearch-analysis-ik
+    url: https://github.com/infinilabs/analysis-ik
+    icon: https://github.com/favicon.ico
+- title: Java
+  description: 入门路线、标准文档和常用生态。
+  items:
+  - name: Java 文档
+    url: https://docs.oracle.com/en/java/
+    desc: Java 标准库与版本文档
+    icon: https://www.oracle.com/favicon.ico
+  - name: JavaGuide
+    url: https://javaguide.cn
+    desc: Java 面试 & 后端通用面试指南
+    icon: https://javaguide.cn/favicon.ico
+  - name: Java Downloads
+    url: https://www.oracle.com/java/technologies/downloads/
+    icon: https://www.oracle.com/favicon.ico
+  - name: Overview of JDK Installation
+    url: https://docs.oracle.com/en/java/javase/15/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A
+    icon: https://docs.oracle.com/favicon.ico
+  - name: Maven
+    url: https://maven.apache.org/index.html
+    icon: https://maven.apache.org/favicon.ico
+  - name: Maven Central
+    url: https://search.maven.org/
+    icon: https://search.maven.org/favicon.ico
+  - name: mvnrepository
+    url: https://mvnrepository.com/
+    icon: https://mvnrepository.com/favicon.ico
+  - name: Spring Boot
+    url: https://spring.io/projects/spring-boot
+    icon: https://spring.io/favicon.ico
+  - name: MyBatis中文网
+    url: https://mybatis.net.cn/
+    icon: https://mybatis.net.cn/favicon.ico
+  - name: MyBatis-Plus
+    url: https://baomidou.com/
+    icon: https://baomidou.com/favicon.ico
+  - name: Java 网络与代理
+    url: https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html
+    icon: https://docs.oracle.com/favicon.ico
+  - name: Apache ZooKeeper
+    url: https://zookeeper.apache.org/
+    icon: https://zookeeper.apache.org/favicon.ico
+  - name: ZooKeeper 文档
+    url: https://zookeeper.apache.org/doc/current/
+    icon: https://zookeeper.apache.org/favicon.ico
+  - name: Zookeeper 教程
+    url: https://www.runoob.com/w3cnote_genre/zookeeper/page/2
+    icon: https://www.runoob.com/favicon.ico
+  - name: Maven教程 - C语言中文网
+    url: https://m.biancheng.net/maven2/
+    desc: Maven 中文入门教程
+    icon: https://c.biancheng.net/favicon.ico
+  - name: Java 设计模式
+    url: https://m.biancheng.net/design_pattern/
+    desc: 23 种设计模式详解
+    icon: https://c.biancheng.net/favicon.ico
+  - name: advanced-java
+    url: https://java.doocs.org/
+    desc: 互联网 Java 工程师进阶知识
+    icon: https://java.doocs.org/favicon.ico
+- title: PHP
+  description: PHP 框架、中文文档与测试工具。
+  items:
+  - name: PHP
+    url: https://www.php.net/
+    icon: https://www.php.net/favicon.ico
+  - name: Laravel
+    url: https://laravel.com/
+    icon: https://laravel.com/favicon.ico
+  - name: 《Laravel 13 中文文档》
+    url: https://learnku.com/docs/laravel/13.x
+    icon: https://learnku.com/favicon.ico
+  - name: Hyperf
+    url: https://www.hyperf.io/
+    icon: https://www.hyperf.io/favicon.ico
+  - name: PHPUnit
+    url: https://phpunit.de/
+    icon: https://phpunit.de/favicon.ico
+  - name: Mockery
+    url: http://docs.mockery.io/en/latest/
+    icon: https://docs.mockery.io/favicon.ico
+  - name: Telescope
+    url: https://learnku.com/docs/laravel/13.x/telescope/17144
+    icon: https://learnku.com/favicon.ico
+  - name: Adminer
+    url: https://www.adminer.org/
+    icon: https://www.adminer.org/favicon.ico
+  - name: Hprose for PHP
+    url: https://github.com/hprose/hprose-php
+    desc: 高性能 RPC 框架
+    icon: https://github.com/favicon.ico
+- title: Python
+  description: 官方文档、Cookbook 与并发编程。
+  items:
+  - name: Python 官网
+    url: https://www.python.org/
+    desc: Python 官方网站
+    icon: https://www.python.org/static/favicon.ico
+  - name: Python Cookbook 中文版
+    url: https://python3-cookbook.readthedocs.io/zh-cn/latest/index.html
+    desc: 《Python Cookbook》第三版中文翻译
+    icon: https://readthedocs.org/favicon.ico
+  - name: Threading in Python
+    url: https://superfastpython.com/threading-in-python/
+    desc: Python 多线程教程
+    icon: https://superfastpython.com/favicon.ico
+- title: Frontend
+  description: 前端框架与文档。
+  items:
+  - name: React
+    url: https://react.dev/
+    desc: React 官方文档
+    icon: https://react.dev/favicon.ico
+  - name: shadcn/ui
+    url: https://ui.shadcn.com/
+    desc: shadcn/ui 官方组件文档
+    icon: https://ui.shadcn.com/favicon.ico
+  - name: Tauri 2.0
+    url: https://tauri.app/zh-cn/
+    desc: Tauri 官方中文文档
+    icon: https://tauri.app/favicon.ico
+  - name: Create React App
+    url: https://create-react-app.dev/
+    icon: https://create-react-app.dev/favicon.ico
+  - name: Redux 中文文档
+    url: https://cn.redux.js.org/
+    icon: https://cn.redux.js.org/favicon.ico
+  - name: Ant Design
+    url: https://ant.design/index-cn
+    icon: https://ant.design/favicon.ico
+  - name: W3Schools
+    url: https://www.w3schools.com/
+    icon: https://www.w3schools.com/favicon.ico
+  - name: Yeoman
+    url: https://yeoman.io/
+    icon: https://yeoman.io/favicon.ico
+  - name: MDN JavaScript
+    url: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript
+    icon: https://developer.mozilla.org/favicon.ico
+  - name: jQuery
+    url: https://jquery.com/
+    icon: https://jquery.com/favicon.ico
+  - name: jQuery API 中文文档
+    url: https://jquery.cuishifeng.cn/
+    icon: https://jquery.cuishifeng.cn/favicon.ico
+  - name: Bootstrap中文网
+    url: https://www.bootcss.com/
+    icon: https://www.bootcss.com/favicon.ico
+  - name: CORS（MDN）
+    url: https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/CORS
+    icon: https://developer.mozilla.org/favicon.ico
+  - name: 单文件组件
+    url: https://cn.vuejs.org/guide/scaling-up/sfc.html
+    icon: https://cn.vuejs.org/favicon.ico
+  - name: React 官方中文文档
+    url: https://zh-hans.react.dev/
+    desc: React 官方中文文档
+    icon: https://zh-hans.react.dev/favicon.ico
+  - name: Redux
+    url: https://redux.js.org/
+    desc: A predictable state container
+    icon: https://redux.js.org/favicon.ico
+- title: AI
+  description: 模型平台与机器学习资料。
+  items:
+  - name: Machine Learning
+    url: https://developers.google.cn/machine-learning/crash-course
+    icon: https://developers.google.cn/favicon.ico
+  - name: OpenAI Platform
+    url: https://platform.openai.com/tokenizer
+    icon: https://platform.openai.com/favicon.ico
+  - name: Deep Learning
+    url: https://www.deeplearningbook.org/
+    icon: https://www.deeplearningbook.org/favicon.ico
+- title: Algorithm
+  description: 算法可视化与刷题。
+  items:
+  - name: 数据结构可视化
+    url: https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+    icon: https://www.cs.usfca.edu/favicon.ico
+  - name: VisuAlgo
+    url: https://visualgo.net/en
+    icon: https://visualgo.net/favicon.ico
+  - name: 力扣
+    url: https://leetcode.cn/
+    icon: https://leetcode-cn.com/favicon.ico
+  - name: LeetCode Cookbook
+    url: https://books.halfrost.com/leetcode/
+    desc: 力扣题解书
+    icon: https://books.halfrost.com/favicon.ico
+- title: Agent
+  description: Agent 学习资料与源码分析。
+  items:
+  - name: Learn Claude Code
+    url: https://github.com/shareAI-lab/learn-claude-code/
+    desc: 真正的 Agent Harness 工程
+    icon: https://github.com/favicon.ico
+  - name: Claude Code Analysis
+    url: https://github.com/liuup/claude-code-analysis
+    desc: Claude code 源码分析
+    icon: https://github.com/favicon.ico
+- title: Docs
+  description: 通用参考手册与文档站。
+  items:
+  - name: 凤凰架构
+    url: https://icyfenix.cn/
+    icon: https://icyfenix.cn/favicon.ico
+  - name: 设计模式
+    url: https://refactoringguru.cn/design-patterns
+    icon: https://refactoringguru.cn/favicon.ico
+  - name: free-programming-books
+    url: https://github.com/justjavac/free-programming-books-zh_CN#php
+    icon: https://github.com/favicon.ico
+  - name: Mac 键盘快捷键
+    url: https://support.apple.com/zh-cn/102650
+    icon: https://support.apple.com/favicon.ico
+  - name: 菜鸟教程
+    url: https://www.runoob.com/
+    icon: https://www.runoob.com/favicon.ico
+  - name: 看云
+    url: https://www.kancloud.cn/
+    icon: https://www.kancloud.cn/favicon.ico
+  - name: DDIA 中文版
+    url: https://ddia.vonng.com/
+    desc: 《设计数据密集型应用》
+    icon: https://ddia.vonng.com/favicon.ico
+  - name: 网道
+    url: https://wangdoc.com/
+    desc: ES6/Git/Bash 等中文文档
+    icon: https://wangdoc.com/favicon.ico
+  - name: Netkiller 电子书
+    url: http://www.netkiller.cn/
+    desc: Linux/运维/编程系列电子书
+    icon: https://www.netkiller.cn/favicon.ico
+  - name: 在线手册
+    url: http://shouce.jb51.net/
+    desc: JS/jQuery/PHP 等在线手册
+    icon: https://shouce.jb51.net/favicon.ico
+  - name: Build Your Own Lisp
+    url: https://buildyourownlisp.com/
+    desc: 用 C 手写一个 Lisp 解释器
+    icon: https://buildyourownlisp.com/favicon.ico
+  - name: 技术分享 PPT
+    url: https://github.com/rfyiamcool/share_ppt
+    desc: Go/后端/运维分享合集
+    icon: https://github.com/favicon.ico
+- title: Learning
+  description: 在线课程与文献资源。
+  items:
+  - name: 中国大学 MOOC
+    url: https://www.icourse163.org/
+    icon: https://www.icourse163.org/favicon.ico
+  - name: 慕课网
+    url: https://www.imooc.com/
+    desc: 编程入门与实战课程
+    icon: https://www.imooc.com/favicon.ico
+- title: Blogs
+  description: 高质量技术博客。
+  items:
+  - name: 酷壳 CoolShell
+    url: https://coolshell.cn/
+    desc: 左耳朵耗子的技术博客
+    icon: https://coolshell.cn/favicon.ico
+  - name: 小林coding
+    url: https://xiaolincoding.com/
+    desc: 图解系统、网络、MySQL
+    icon: https://xiaolincoding.com/favicon.ico
+  - name: 极客兔兔
+    url: https://geektutu.com/
+    desc: Go 系列实战教程
+    icon: https://geektutu.com/favicon.ico
+  - name: 李文周
+    url: https://liwenzhou.com/
+    desc: Go 语言教程
+    icon: https://www.liwenzhou.com/favicon.ico
+  - name: Tony Bai
+    url: https://tonybai.com/
+    desc: Go 与云原生深入文章
+    icon: https://tonybai.com/favicon.ico
+  - name: 煎鱼
+    url: https://eddycjy.com/
+    desc: Go 源码与实战
+    icon: https://eddycjy.com/favicon.ico
+  - name: 阳明
+    url: https://www.qikqiak.com/
+    desc: Kubernetes / 云原生实践
+    icon: https://www.qikqiak.com/favicon.ico
+  - name: 美团技术团队
+    url: https://tech.meituan.com/
+    desc: 美团工程实践
+    icon: https://tech.meituan.com/favicon.ico
+  - name: 惨绿少年
+    url: https://www.cnblogs.com/clsn/
+    desc: Linux 运维笔记
+    icon: https://www.cnblogs.com/favicon.ico
+  - name: Mohuishou
+    url: https://lailin.xyz/
+    desc: Go / 后端笔记
+    icon: https://lailin.xyz/favicon.ico
+  - name: KIMI GAO
+    url: https://kimigao.com/blog/
+    desc: 技术博客
+    icon: https://kimigao.com/favicon.ico
+  - name: 乱世浮生
+    url: https://atbug.com/
+    desc: Kubernetes / 云原生笔记
+    icon: https://atbug.com/favicon.ico
+  - name: Vincent's Blog
+    url: https://dreambo8563.github.io/
+    desc: 前端技术博客
+    icon: https://dreambo8563.github.io/favicon.ico
+- title: Community
+  description: 技术社区与资讯。
+  items:
+  - name: 掘金
+    url: https://juejin.cn/
+    desc: 开发者技术社区
+    icon: https://juejin.cn/favicon.ico
+  - name: InfoQ
+    url: https://www.infoq.cn/
+    desc: 软件开发资讯
+    icon: https://www.infoq.cn/favicon.ico
+  - name: 人人都是产品经理
+    url: https://www.woshipm.com/
+    desc: 产品经理社区
+    icon: https://www.woshipm.com/favicon.ico
+  - name: H5 案例分享
+    url: https://www.h5anli.com/
+    desc: 创意 H5 案例
+    icon: https://www.h5anli.com/favicon.ico
+- title: Tools
+  description: 日常小工具。
+  items:
+  - name: Keep Screen On
+    url: https://keep-screen-on.com/
+    desc: 保持屏幕常亮，防止自动锁屏
+    icon: https://keep-screen-on.com/favicon.ico
+  - name: Temp Mail
+    url: https://temp-mail.org/zh
+    icon: https://temp-mail.org/favicon.ico
+  - name: Go 在线工具集
+    url: http://www.gotool.top/
+    icon: https://www.gotool.top/favicon.ico
+  - name: Sql to Gorm
+    url: https://sql2gorm.mccode.info/
+    icon: https://sql2gorm.mccode.info/favicon.ico
+  - name: Receive SMS Online
+    url: https://receive-sms.com/
+    icon: https://receive-sms.com/favicon.ico
+  - name: 支付宝验签
+    url: https://opendocs.alipay.com/open/291/106097
+    icon: https://opendocs.alipay.com/favicon.ico
+  - name: Windy
+    url: https://www.windy.com/?39.929,116.389,5
+    icon: https://www.windy.com/favicon.ico
+  - name: iFixit
+    url: https://zh.ifixit.com/
+    icon: https://www.ifixit.com/favicon.ico
+  - name: DigitalOcean
+    url: https://www.digitalocean.com/
+    icon: https://www.digitalocean.com/favicon.ico
+  - name: Socks Proxy
+    url: https://free-proxy-list.net/socks-proxy.html
+    icon: https://www.socks-proxy.net/favicon.ico
+  - name: Yandex
+    url: https://yandex.com/
+    icon: https://yandex.com/favicon.ico
+  - name: Unsplash
+    url: https://unsplash.com/
+    icon: https://unsplash.com/favicon.ico
+  - name: SaveFrom
+    url: https://zh.savefrom.net/322bd/
+    icon: https://zh.savefrom.net/favicon.ico
+  - name: TechEmpower 基准
+    url: https://www.techempower.com/benchmarks/#section=intro&hw=ph&test=json
+    icon: https://www.techempower.com/favicon.ico
+  - name: libphonenumber Demo
+    url: https://giggsey.com/libphonenumber/index.php?phonenumber=%2B8613051888211&country=CN&language=zh&region=CN
+    icon: https://giggsey.com/favicon.ico
+  - name: Excalidraw
+    url: https://excalidraw.com/
+    icon: https://excalidraw.com/favicon.ico
+  - name: Tushare
+    url: https://tushare.pro/home/
+    icon: https://tushare.pro/favicon.ico
+  - name: Stripe
+    url: https://stripe.com/zh-us
+    icon: https://stripe.com/favicon.ico
+  - name: 全国图书馆参考咨询联盟
+    url: http://www.ucdrs.superlib.net/
+    icon: https://www.ucdrs.superlib.net/favicon.ico

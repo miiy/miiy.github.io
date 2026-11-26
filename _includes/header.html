@@ -2,7 +2,7 @@
 
   <div class="wrapper">
     {%- assign default_paths = site.pages | map: "path" -%}
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
+    {%- assign page_paths = site.minima.nav_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
@@ -17,6 +17,12 @@
         {%- assign my_pcount = false -%}
         {%- for path in page_paths -%}
         {%- assign hyperpage = site.pages | where: "path", path | first -%}
+        {%- unless hyperpage -%}
+          {%- for coll in site.collections -%}
+            {%- assign found = coll.docs | where: "path", path | first -%}
+            {%- if found -%}{%- assign hyperpage = found -%}{%- break -%}{%- endif -%}
+          {%- endfor -%}
+        {%- endunless -%}
         {%- comment -%} Exclude paging {%- endcomment -%}
         {%- if hyperpage.url contains '/posts/' -%}
           {%- if my_pcount -%}
@@ -28,12 +34,7 @@
         <a class="nav-item" href="{{ hyperpage.url | relative_url }}">{{ hyperpage.title | escape }}</a>
         {%- endif -%}
         {%- endfor -%}
-
-        {% assign collections = site.collections | where_exp:"collection", "collection.label != 'posts'" %}
-        {%- for collection in collections -%}
-        <a class="nav-item" href="{{ collection.label | relative_url }}">{{ collection.label | escape | capitalize }}</a>
-        {%- endfor -%}
-      </div>
+      </div>
     </nav>
     {%- endunless %}
   </div>

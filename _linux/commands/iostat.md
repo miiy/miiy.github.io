@@ -3,8 +3,6 @@ layout: post
 title: "iostat"
 ---
 
-# iostat
-
 ```bash
 iostat
 Linux 4.19.0-23-amd64 (iZ8vb5389qa2efusz0uy5rZ) 	01/16/2024 	_x86_64_	(1 CPU)

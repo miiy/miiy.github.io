@@ -3,8 +3,6 @@ layout: post
 title: "vmstat"
 ---
 
-# vmstat
-
 ```bash
 vmstat
 procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----

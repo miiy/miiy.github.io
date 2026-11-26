@@ -5,8 +5,6 @@ date: 2025-09-24
 tags: linux
 ---
 
-# code-server
-
 ```bash
 #!/bin/sh
 # This will start a code-server container and expose it at http://127.0.0.1:8080.

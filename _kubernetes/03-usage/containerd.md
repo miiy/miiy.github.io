@@ -5,7 +5,7 @@ title: "containerd 使用"
 
 <https://github.com/containerd/containerd/blob/main/docs/getting-started.md>
 
-# ctr
+## ctr
 
 containerd 自带的低级 CLI 工具
 
@@ -18,7 +18,7 @@ sudo ctr -n k8s.io images list
 sudo ctr -n k8s.io containers list
 ```
 
-# nerdctl
+## nerdctl
 
 containerd 的用户友好 CLI，语法和 docker 基本一样
 
@@ -35,7 +35,7 @@ $ sudo nerdctl -n k8s.io images
 $ sudo nerdctl -n k8s.io ps -a
 ```
 
-# crictl
+## crictl
 
 Kubernetes CRI (Container Runtime Interface) 的 CLI 工具
 

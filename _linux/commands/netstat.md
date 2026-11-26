@@ -3,8 +3,6 @@ layout: post
 title: "netstat"
 ---
 
-# netstat
-
 ## install
 
 ```bash

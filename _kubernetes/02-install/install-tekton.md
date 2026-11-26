@@ -1,3 +1,8 @@
+---
+layout: post
+title: "安装 tekton"
+---
+
 ## 安装 tekton
 
 修改 conatinerd 配置文件

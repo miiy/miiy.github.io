@@ -1,4 +1,4 @@
 ---
 layout: collections
-title: kubernetes notes
+title: Kubernetes
 ---

@@ -5,7 +5,7 @@ date: 2016-06-13
 tags: linux
 ---
 
-# Install
+## Install
 
 <https://docs.oracle.com/en/java/javase/15/install/installation-jdk-linux-platforms.html>
 

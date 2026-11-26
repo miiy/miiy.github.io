@@ -1,4 +1,4 @@
 ---
 layout: collections
-title: linux commands
+title: Linux
 ---
